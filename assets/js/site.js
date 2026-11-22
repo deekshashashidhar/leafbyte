@@ -11,27 +11,31 @@
     window.LEAFBYTE_CONFIG || {}
   ));
 
-  var LOGO =
-    '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">' +
-    '<path d="M6 26C6 13 14 6 27 5c0 13-6 21-19 21z" fill="#1F6B45"/>' +
-    '<path d="M8 24c5-6 10-10 16-15" stroke="#F3F9F4" stroke-width="2" fill="none" stroke-linecap="round"/>' +
-    '<rect x="2" y="27" width="4" height="4" fill="#F2B134"/>' +
-    '<rect x="7" y="27" width="4" height="4" fill="#2E9E5B"/>' +
-    '<rect x="2" y="22" width="4" height="4" fill="#2E9E5B"/>' +
-    "</svg>";
+  // Icons, as on the original site.
+  (function loadIcons() {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
+    link.crossOrigin = "anonymous";
+    link.referrerPolicy = "no-referrer";
+    document.head.appendChild(link);
+  })();
+
+  var LOGO = '<i class="fas fa-leaf" aria-hidden="true"></i>';
 
   var NAV = [
-    { href: "learn.html", label: "Learn" },
-    { href: "playbyte.html", label: "Play" },
+    { href: "index.html", label: "Home" },
+    { href: "index.html#features", label: "Solutions" },
+    { href: "playbyte.html", label: "PlayByte" },
+    { href: "learn.html", label: "Resources" },
     { href: "heroes.html", label: "Heroes" },
-    { href: "about.html", label: "About" },
-    { href: "join.html", label: "Join" },
+    { href: "index.html#join", label: "Join Us" },
   ];
 
   function currentPage() {
     var path = location.pathname.split("/").pop() || "index.html";
     if (path.indexOf(".") === -1) path += ".html";
-    // The game belongs to the Play section.
+    // The game belongs to the PlayByte section.
     if (path === "climate-quest.html") return "playbyte.html";
     return path;
   }
@@ -49,18 +53,35 @@
       '<header class="site-header" id="header">' +
       '<div class="container">' +
       '<a class="logo" href="index.html">' + LOGO + "LeafByte</a>" +
-      '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">' +
-      '<span></span><span class="visually-hidden">Menu</span></button>' +
+      '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">' +
+      '<i class="fas fa-bars" aria-hidden="true"></i></button>' +
       '<nav class="nav" id="site-nav" aria-label="Main">' +
-      "<ul>" + items +
-      '<li><a class="btn btn-accent" href="climate-quest.html">Play Climate Quest</a></li>' +
-      "</ul></nav></div></header>";
+      "<ul>" + items + "</ul></nav></div></header>";
 
+    var header = document.getElementById("header");
     var toggle = document.querySelector(".menu-toggle");
     var nav = document.getElementById("site-nav");
+
+    // Transparent over the photo or gradient at the top, white once scrolled.
+    var ticking = false;
+    function onScroll() {
+      header.classList.toggle("scrolled", window.scrollY > 60);
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(onScroll);
+      }
+    }, { passive: true });
+    onScroll();
+
     function setOpen(open) {
       nav.classList.toggle("open", open);
+      header.classList.toggle("menu-open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggle.querySelector("i").className = open ? "fas fa-times" : "fas fa-bars";
     }
     toggle.addEventListener("click", function () {
       setOpen(!nav.classList.contains("open"));
@@ -74,6 +95,21 @@
     nav.addEventListener("click", function (e) {
       if (e.target.closest("a")) setOpen(false);
     });
+
+    // Links to a section on this same page (for example index.html#join):
+    // scroll there directly, so closing the menu cannot interrupt the jump.
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest('a[href*="#"]');
+      if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var url = new URL(link.href, location.href);
+      if (url.pathname !== location.pathname || url.search !== location.search || !url.hash) return;
+      var target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      e.preventDefault();
+      setOpen(false);
+      if (history.pushState) history.pushState(null, "", url.hash);
+      target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    });
   }
 
   function renderFooter() {
@@ -86,30 +122,30 @@
       '<footer class="site-footer"><div class="container">' +
       '<div class="footer-grid">' +
       "<div>" +
-      '<a class="logo" href="index.html">' + LOGO + "LeafByte</a>" +
-      '<p style="margin-top:12px;max-width:40ch">Learn it, play it, build it: the fun way into green computing. Built for students, by students.</p>' +
+      "<h2>LeafByte</h2>" +
+      "<p>Bridging the gap between AI and technological innovation with environmental responsibility for a sustainable digital future.</p>" +
       "</div>" +
-      '<div><h2>Learn</h2><ul>' +
-      '<li><a href="learn.html#case-studies">Case studies</a></li>' +
-      '<li><a href="learn.html#papers">Research papers</a></li>' +
-      '<li><a href="learn.html#basics">Green tech basics</a></li>' +
-      '<li><a href="heroes.html">Meet our heroes</a></li>' +
+      "<div><h2>Resources</h2><ul>" +
+      '<li><a href="learn.html#papers">Research Papers</a></li>' +
+      '<li><a href="learn.html#case-studies">Case Studies</a></li>' +
+      '<li><a href="heroes.html">Meet Our Heroes</a></li>' +
+      '<li><a href="learn.html#basics">More About Sustainable Tech</a></li>' +
       "</ul></div>" +
-      '<div><h2>Play</h2><ul>' +
-      '<li><a href="playbyte.html">PlayByte games</a></li>' +
+      "<div><h2>PlayByte</h2><ul>" +
+      '<li><a href="playbyte.html">All games</a></li>' +
       '<li><a href="climate-quest.html">Climate Quest</a></li>' +
-      '<li><a href="join.html">Join the movement</a></li>' +
+      '<li><a href="index.html#join">Join the Movement</a></li>' +
       "</ul></div>" +
-      '<div><h2>About</h2><ul>' +
-      '<li><a href="about.html">Mission and team</a></li>' +
-      '<li><a href="sources.html">Sources and methods</a></li>' +
+      "<div><h2>About Us</h2><ul>" +
+      '<li><a href="about.html">Our Team</a></li>' +
+      '<li><a href="sources.html">Sources &amp; Methods</a></li>' +
       contact +
       "</ul></div>" +
       "</div>" +
-      '<div class="footer-bottom">' +
-      "<p>&copy; " + new Date().getFullYear() + " LeafByte</p>" +
-      '<p><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms</a></p>' +
-      "</div></div></footer>";
+      '<div class="footer-bottom"><p>' +
+      "&copy; " + new Date().getFullYear() + " LeafByte. All rights reserved. | " +
+      '<a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>' +
+      "</p></div></div></footer>";
   }
 
   /* Helpers shared by page scripts */

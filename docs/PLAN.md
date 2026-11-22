@@ -59,18 +59,20 @@ Main path: Home → PlayByte hub → Climate Quest → Result → Join → Thank
 
 Supporting pages: `about.html`, `sources.html`, `privacy.html`, `terms.html`, `404.html`.
 
-**Style** (defined once as CSS variables in `assets/css/site.css`):
+**Style:** the original LeafByte look from the CodeSandbox site, defined once as CSS variables in `assets/css/site.css`. (The plan proposed a deep-green light theme; the team chose to keep the original design.)
 
 | Role | Value |
 |---|---|
-| Primary green | `#1F6B45` |
-| Light background | `#F3F9F4` |
-| Accent | `#F2B134` |
-| Text | `#1B2A22` |
-| Success / error | `#2E9E5B` / `#C0392B` |
-| Heading font | JetBrains Mono (self-hosted) |
-| Body font | Inter (self-hosted) |
-| Corners and spacing | 8 px corners, spacing in steps of 8 px |
+| Primary teal | `#00C896` (text links use the darker `#007F65` for readability) |
+| Secondary purple | `#5E35B1` |
+| Brand gradient | teal to purple, 135 degrees, on buttons, the stats band and page headers |
+| Dark (text, footer, overlays) | `#1A2B3C` |
+| Light background | `#F8F9FA` |
+| Accent | `#FF6B6B` |
+| Font | Segoe UI system font stack |
+| Shapes | pill buttons, 15 px card corners with soft shadows that lift on hover |
+| Layout | fixed header that turns white on scroll; full-width photo hero and Join sections; gradient band at the top of each inner page |
+| Icons | Font Awesome 6.4 |
 
 ## 4. Tech stack
 

@@ -3,167 +3,338 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LeafByte: learn, play and build green computing</title>
-    <meta name="description" content="LeafByte helps students and early-career developers understand how AI and digital technology affect the climate, through a game, sourced lessons and a community." />
-    <meta property="og:title" content="LeafByte: the fun way into green computing" />
+    <title>LeafByte | Sustainable Tech</title>
+    <meta name="description" content="LeafByte helps students and early-career developers understand how AI and digital technology affect the climate, through a game, sourced lessons and the Green Code Movement." />
+    <meta property="og:title" content="LeafByte | Play, Learn, Code Green" />
     <meta property="og:description" content="Play Climate Quest, read sourced lessons and join the Green Code Movement." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="assets/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/img/site/hero.jpg" as="image" />
     <link rel="stylesheet" href="assets/css/site.css" />
   </head>
   <body>
     <div id="site-header"></div>
 
     <main id="main">
-      <section class="home-hero">
-        <div class="container grid">
-          <div>
-            <p class="eyebrow">Built for students, by students</p>
-            <h1>Learn it, play it, <span>build it</span>.</h1>
-            <p class="lead" style="margin-top: 16px">
-              LeafByte helps students and early-career developers understand how AI and digital technology affect the
-              climate, so you can make greener choices in what you build and use.
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Play, Learn, Code Green, &amp; Shape Tomorrow</h1>
+            <p>
+              To make AI &amp; technology sustainable and eco-friendly for a greener tomorrow, join the "Green Code
+              Movement" now!
             </p>
-            <div class="actions">
-              <a class="btn btn-primary" href="playbyte.html">Play now</a>
-              <a class="btn btn-ghost" href="learn.html">Start learning</a>
-            </div>
-          </div>
-          <svg class="hero-art" viewBox="0 0 320 260" role="img" aria-label="A leaf growing out of a circuit board">
-            <rect x="20" y="170" width="280" height="70" rx="8" fill="#DCEFE2" />
-            <g fill="none" stroke="#1F6B45" stroke-width="3" stroke-linecap="round">
-              <path d="M40 205h50l15-15h40" />
-              <path d="M280 215h-60l-15 15h-45" />
-              <path d="M160 230v-40" />
-            </g>
-            <g fill="#1F6B45">
-              <circle cx="40" cy="205" r="5" />
-              <circle cx="280" cy="215" r="5" />
-              <circle cx="160" cy="230" r="5" />
-            </g>
-            <rect x="130" y="178" width="60" height="24" rx="4" fill="#1F6B45" />
-            <path d="M160 178c0-50-10-80-55-110 40 0 70 30 55 110z" fill="#2E9E5B" />
-            <path d="M160 178c5-60 30-100 90-125 -10 55-40 105-90 125z" fill="#1F6B45" />
-            <path d="M160 176c10-40 35-80 75-105" stroke="#F3F9F4" stroke-width="3" fill="none" stroke-linecap="round" />
-            <g fill="#F2B134">
-              <rect x="235" y="30" width="10" height="10" />
-              <rect x="250" y="45" width="8" height="8" />
-              <rect x="88" y="52" width="8" height="8" />
-            </g>
-          </svg>
-        </div>
-      </section>
-
-      <section class="section-tight section-alt" aria-labelledby="how-title">
-        <div class="container">
-          <h2 id="how-title" class="visually-hidden">How LeafByte works</h2>
-          <div class="grid grid-3 steps">
-            <div class="step">
-              <h3>Learn</h3>
-              <p>Short, sourced lessons and case studies on AI's footprint and on AI helping the planet.</p>
-              <p><a href="learn.html">Open the Learn hub</a></p>
-            </div>
-            <div class="step">
-              <h3>Play</h3>
-              <p>Match climate problems to solutions in Climate Quest and grow a Hope Garden that remembers you.</p>
-              <p><a href="climate-quest.html">Play Climate Quest</a></p>
-            </div>
-            <div class="step">
-              <h3>Build</h3>
-              <p>Join the Green Code Movement to write, translate, design or code with us.</p>
-              <p><a href="join.html">Join the movement</a></p>
+            <div class="hero-btns on-dark">
+              <a href="#join" class="btn btn-primary">Join the Green Code Movement</a>
+              <a href="#features" class="btn btn-ghost">Explore Solutions</a>
             </div>
           </div>
         </div>
+        <div class="bg-blob" style="top: -300px; right: -300px" aria-hidden="true"></div>
       </section>
 
-      <section class="section" aria-labelledby="play-title">
+      <!-- Solutions -->
+      <section class="section features" id="features">
         <div class="container">
-          <div class="card feature-card">
-            <div>
-              <p class="eyebrow">PlayByte</p>
-              <h2 id="play-title">Climate Quest</h2>
-              <p style="margin-top: 8px">
-                Pair each climate problem with its solution. Every match teaches one real, sourced fact and earns seeds
-                for your Hope Garden. A round takes about three minutes.
+          <h2 class="section-title">Our Sustainable AI &amp; Tech Solutions</h2>
+          <p class="section-subtitle">Nine ways to shrink technology's footprint, each with one thing you can try today.</p>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+              <h3>Efficient AI Models</h3>
+              <p>
+                Choose energy efficiency, not just accuracy. Smaller or distilled models such as DistilBERT often do the
+                job with far less compute, and LoRA is a fine-tuning technique that updates only a few extra weights.
               </p>
-              <div class="card-actions" style="margin-top: 24px">
-                <a class="btn btn-accent" href="climate-quest.html">Play now</a>
-                <a class="btn btn-ghost" href="playbyte.html">See all games</a>
+              <p class="try"><strong>Try this today:</strong> test whether a smaller model meets your accuracy target before using the largest one.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-cloud" aria-hidden="true"></i></div>
+              <h3>Green Data Centers</h3>
+              <p>
+                Run data centres on wind, solar and hydropower, and cool them smarter. AI-controlled cooling cut the
+                energy Google used for cooling by up to 40%
+                (<a href="https://deepmind.google/discover/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-by-40/" target="_blank" rel="noopener">DeepMind, 2016</a>).
+              </p>
+              <p class="try"><strong>Try this today:</strong> check how clean your cloud region's electricity is before you deploy.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-recycle" aria-hidden="true"></i></div>
+              <h3>Model Reuse and Transfer Learning</h3>
+              <p>
+                Instead of training models from scratch, reuse pre-trained models and fine-tune them. This saves most of
+                the compute, and the emissions that come with it.
+              </p>
+              <p class="try"><strong>Try this today:</strong> search a model hub for a pre-trained model before starting a new training run.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-earth-americas" aria-hidden="true"></i></div>
+              <h3>Geographical Optimization</h3>
+              <p>
+                Run energy-hungry training where and when the grid is cleanest, or in cooler climates that need less
+                cooling. The same job emits different amounts on different grids.
+              </p>
+              <p class="try"><strong>Try this today:</strong> schedule a long job for a time of day when your grid is cleaner.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-microchip" aria-hidden="true"></i></div>
+              <h3>Efficient Hardware</h3>
+              <p>
+                Use chips with better performance per watt, and keep devices in use for longer: much of a device's
+                footprint comes from making it, and most e-waste is never formally recycled.
+              </p>
+              <p class="try"><strong>Try this today:</strong> repair, resell or properly recycle one old device.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
+              <h3>Better Training Techniques</h3>
+              <p>
+                Mixed-precision training, early stopping, pruning and quantisation all cut the compute a model needs,
+                often with little loss in accuracy.
+              </p>
+              <p class="try"><strong>Try this today:</strong> turn on early stopping so training ends when the model stops improving.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+              <h3>Carbon Tracking &amp; Accountability</h3>
+              <p>
+                You cannot cut what you do not count. Open-source tools such as
+                <a href="https://codecarbon.io/" target="_blank" rel="noopener">CodeCarbon</a> estimate your code's
+                emissions as it runs, so teams can report and reduce them.
+              </p>
+              <p class="try"><strong>Try this today:</strong> wrap one training script with an emissions tracker.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+              <h3>Environmental Impact Audits</h3>
+              <p>
+                Life-cycle assessments count manufacturing, use and disposal, not just electricity. Counting the
+                hardware roughly doubled the footprint of the BLOOM language model.
+              </p>
+              <p class="try"><strong>Try this today:</strong> <a href="learn.html?q=BLOOM#case-studies">read how the BLOOM team measured it</a>.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-landmark" aria-hidden="true"></i></div>
+              <h3>Sustainable AI Policy &amp; Research</h3>
+              <p>
+                Support research on greener deep learning and rules that make AI's energy and emissions transparent, so
+                buyers and governments can make better choices.
+              </p>
+              <p class="try"><strong>Try this today:</strong> <a href="learn.html#papers">read one research paper</a> from our library.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-blob" style="bottom: -400px; left: -300px" aria-hidden="true"></div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats" aria-labelledby="stats-title">
+        <div class="container">
+          <h2 id="stats-title" class="visually-hidden">Tech's footprint in numbers</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">415 TWh</div>
+              <div class="stat-label">Electricity used by data centres in 2024, about 1.5% of the world's total</div>
+              <p class="source"><a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">IEA, 2025</a></p>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">2.1–3.9%</div>
+              <div class="stat-label">Share of global greenhouse gas emissions from information and communication tech</div>
+              <p class="source"><a href="https://doi.org/10.1016/j.patter.2021.100340" target="_blank" rel="noopener">Freitag et al., 2021</a></p>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">62 million t</div>
+              <div class="stat-label">Global e-waste generated in 2022</div>
+              <p class="source"><a href="https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" target="_blank" rel="noopener">Global E-waste Monitor, 2024</a></p>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">22.3%</div>
+              <div class="stat-label">Of that e-waste documented as properly collected and recycled</div>
+              <p class="source"><a href="https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" target="_blank" rel="noopener">Global E-waste Monitor, 2024</a></p>
+            </div>
+          </div>
+          <p class="note">Every number on LeafByte links to its source. <a href="sources.html">How we check our facts</a>.</p>
+        </div>
+      </section>
+
+      <!-- PlayByte -->
+      <section class="section section-grey" id="playbyte">
+        <div class="container">
+          <div class="playbyte-content">
+            <div class="playbyte-text">
+              <h2 class="section-title left">PlayByte</h2>
+              <p>
+                Experience our interactive games that make understanding AI and technology's environmental impact
+                engaging and educational. Start with <strong>Climate Quest</strong>: match climate problems to their
+                solutions, learn a sourced fact with every match, and grow your own Hope Garden.
+              </p>
+              <a href="playbyte.html" class="btn btn-primary">Play Now</a>
+            </div>
+            <div class="playbyte-image">
+              <div class="frame">
+                <img src="assets/img/site/pexels-mountains.jpg" alt="Mountains at sunset reflected in a lake" loading="lazy" width="1280" height="800" />
+                <div class="garden-strip" aria-live="polite">
+                  <strong id="garden-status">Your Hope Garden is waiting for its first seed.</strong>
+                  <div class="plants" id="garden-plants" aria-hidden="true">🌱</div>
+                </div>
               </div>
             </div>
-            <div class="garden-preview" aria-live="polite">
-              <div id="garden-status">Your Hope Garden is waiting for its first seed.</div>
-              <div class="plants" id="garden-plants" aria-hidden="true">🌱</div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-alt" aria-labelledby="stats-title">
+      <!-- Knowledge Grove -->
+      <section class="section section-alt center" id="resources">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">The numbers</p>
-            <h2 id="stats-title">Tech has a footprint you can measure</h2>
-            <p>Every figure on LeafByte links to its source. <a href="sources.html">How we choose sources</a>.</p>
-          </div>
-          <div class="grid grid-3">
-            <div class="card stat">
-              <span class="stat-number">415 TWh</span>
-              <span class="stat-label">Electricity used by the world's data centres in 2024, about 1.5% of the global total</span>
-              <p class="source">Source: <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">IEA, Energy and AI</a> (2025)</p>
+          <h2 class="section-title">Knowledge Grove</h2>
+          <p class="section-subtitle">Explore our library of resources to learn about sustainable AI and tech practices!</p>
+          <div class="resources-grid">
+            <div class="resource-card">
+              <div class="resource-image">
+                <img src="assets/img/site/grove-network.jpg" alt="Glowing network of lights over the Earth at night" loading="lazy" width="800" height="450" />
+              </div>
+              <div class="resource-content">
+                <span class="resource-category">Case Studies</span>
+                <h3 class="resource-title">AI for Earth, and AI's Own Footprint</h3>
+                <p class="resource-desc">Real projects from rainforest sensors to data-centre cooling, each with its source and its limits.</p>
+                <a href="learn.html#case-studies" class="btn btn-ghost btn-sm">Read more</a>
+              </div>
             </div>
-            <div class="card stat">
-              <span class="stat-number">62 Mt</span>
-              <span class="stat-label">E-waste produced in 2022; only 22.3% was documented as properly recycled</span>
-              <p class="source">Source: <a href="https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" target="_blank" rel="noopener">Global E-waste Monitor</a> (2024)</p>
+            <div class="resource-card">
+              <div class="resource-image">
+                <img src="assets/img/site/grove-data.jpg" alt="Charts and data on a laptop screen" loading="lazy" width="800" height="450" />
+              </div>
+              <div class="resource-content">
+                <span class="resource-category">Research Papers</span>
+                <h3 class="resource-title">The Science of Green AI</h3>
+                <p class="resource-desc">Six key papers with a plain-language summary, why each matters, and a link to read it.</p>
+                <a href="learn.html#papers" class="btn btn-ghost btn-sm">Read more</a>
+              </div>
             </div>
-            <div class="card stat">
-              <span class="stat-number">2.1–3.9%</span>
-              <span class="stat-label">Estimated share of global greenhouse gas emissions from information and communication tech</span>
-              <p class="source">Source: <a href="https://doi.org/10.1016/j.patter.2021.100340" target="_blank" rel="noopener">Freitag et al., Patterns</a> (2021)</p>
+            <div class="resource-card">
+              <div class="resource-image">
+                <img src="assets/img/site/grove-circuit.jpg" alt="Close-up of a green circuit board" loading="lazy" width="800" height="450" />
+              </div>
+              <div class="resource-content">
+                <span class="resource-category">Heroes</span>
+                <h3 class="resource-title">Meet Our Heroes</h3>
+                <p class="resource-desc">The people whose courage and work changed how the world sees the planet.</p>
+                <a href="heroes.html" class="btn btn-ghost btn-sm">Read more</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="latest-title">
-        <div class="container grid grid-2">
-          <div class="card flex">
-            <p class="eyebrow">Latest lesson</p>
-            <h2 id="latest-title" style="font-size: 1.3rem">What did it cost to train an open AI model?</h2>
-            <p style="margin: 8px 0 16px">
-              The team behind the BLOOM language model counted everything, including the hardware. Counting the hardware roughly doubled the
-              total.
-            </p>
-            <div class="card-actions"><a class="btn btn-ghost" href="learn.html?q=BLOOM#case-studies">Read the case study</a></div>
-          </div>
-          <div class="card flex" id="join">
-            <p class="eyebrow">Green Code Movement</p>
-            <h2 style="font-size: 1.3rem">Help make tech planet-friendly</h2>
-            <p style="margin: 8px 0 16px">
-              Students, educators, volunteers and organisations are welcome. Tell us how you would like to help and we
-              will send you a first task.
-            </p>
-            <div class="card-actions"><a class="btn btn-primary" href="join.html">Join the movement</a></div>
+      <!-- Join -->
+      <section class="section join" id="join">
+        <div class="container">
+          <div class="join-content">
+            <h2 class="section-title">Join the Green Code Movement</h2>
+            <p class="section-subtitle">Be part of the solution. Together, we can make AI and tech both powerful and planet-friendly.</p>
+            <div class="notice" id="not-connected" hidden>
+              <strong>Sign-ups open soon.</strong> This form is not connected to our database yet, so we cannot save your
+              details today. Please check back shortly.
+            </div>
+            <div class="notice" id="game-note" hidden></div>
+
+            <div class="join-form">
+              <form class="form" id="join-form" novalidate>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" placeholder="Enter your name" required maxlength="120" aria-describedby="name-error" />
+                    <p class="error" id="name-error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required maxlength="200" aria-describedby="email-error" />
+                    <p class="error" id="email-error" hidden></p>
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="role">I am a…</label>
+                    <select id="role" name="role" required aria-describedby="role-error">
+                      <option value="">Choose one</option>
+                      <option value="student">Student</option>
+                      <option value="educator">Educator</option>
+                      <option value="volunteer">Volunteer</option>
+                      <option value="organisation">Organisation</option>
+                    </select>
+                    <p class="error" id="role-error" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="interest">Primary Interest</label>
+                    <select id="interest" name="interest" required aria-describedby="interest-error">
+                      <option value="">Select your interest</option>
+                      <option value="updates">News and new lessons</option>
+                      <option value="games">Hearing when new games launch</option>
+                      <option value="teaching">Using LeafByte in class</option>
+                      <option value="volunteering">Volunteering</option>
+                      <option value="partnering">Partnering as an organisation</option>
+                      <option value="nominate">Nominating a climate hero</option>
+                      <option value="contact">Asking a question</option>
+                    </select>
+                    <p class="error" id="interest-error" hidden></p>
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="country">Country <span class="meta">(optional)</span></label>
+                    <input id="country" name="country" type="text" autocomplete="country-name" placeholder="Where are you based?" maxlength="80" />
+                  </div>
+                  <div class="field">
+                    <label for="volunteer_role">Volunteer role <span class="meta">(optional)</span></label>
+                    <select id="volunteer_role" name="volunteer_role">
+                      <option value="">Not right now</option>
+                      <option value="content-writer">Content writer</option>
+                      <option value="translator">Translator</option>
+                      <option value="developer">Developer</option>
+                      <option value="designer">Designer</option>
+                      <option value="campus-ambassador">Campus ambassador</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="contribution">How would you like to contribute?</label>
+                  <textarea id="contribution" name="contribution" rows="4" maxlength="1000" placeholder="Your ideas or expertise"></textarea>
+                </div>
+                <div class="honeypot" aria-hidden="true">
+                  <label for="website">Leave this field empty</label>
+                  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label class="checkbox">
+                    <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error" />
+                    <span>I agree that LeafByte can store these details and email me about the Green Code Movement, at most once a month. Read our <a href="privacy.html">privacy policy</a>.</span>
+                  </label>
+                  <p class="error" id="consent-error" hidden></p>
+                </div>
+                <div class="notice notice-error" id="form-error" role="alert" hidden></div>
+                <button class="btn btn-primary" type="submit" id="submit-btn">Join the Movement</button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <div id="site-footer"></div>
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/site.js"></script>
+    <script src="assets/js/join.js"></script>
     <script>
       (function () {
         var save = LB.storage.get("leafbyte.save.v1", null);
         if (!save || !save.plants) return;
-        var status = document.getElementById("garden-status");
-        var plants = document.getElementById("garden-plants");
         var count = save.plants.length;
-        status.textContent =
-          "Your Hope Garden: " + count + (count === 1 ? " plant" : " plants") + ", " + (save.seeds || 0) + (save.seeds === 1 ? " seed" : " seeds") + " saved.";
-        plants.textContent = save.plants.slice(-12).map(function (p) { return p.icon; }).join("") || "🌱";
+        var seeds = save.seeds || 0;
+        document.getElementById("garden-status").textContent =
+          "Your Hope Garden: " + count + (count === 1 ? " plant" : " plants") + ", " + seeds + (seeds === 1 ? " seed" : " seeds") + " saved.";
+        document.getElementById("garden-plants").textContent =
+          save.plants.slice(-12).map(function (p) { return p.icon; }).join("") || "🌱";
       })();
     </script>
   </body>
