@@ -1,31 +1,31 @@
-/* LeafByte design system, based on the original CodeSandbox site:
-   teal-to-purple gradient, pill buttons, white cards on a light page,
-   full-width photo sections and a dark footer. */
+/* LeafByte design system: the original CodeSandbox layout (pill buttons,
+   white cards on a light page, full-width photo sections, dark footer)
+   in the green colour theme from the build plan. */
 
 :root {
-  /* Original palette */
-  --primary: #00c896;
-  --primary-dark: #009b7a;
-  --secondary: #5e35b1;
-  --dark: #1a2b3c;
-  --light: #f8f9fa;
-  --coral: #ff6b6b;
+  /* Green theme (build plan section 7) */
+  --primary: #2e9e5b; /* bright green: icons, underlines, borders */
+  --primary-dark: #1f6b45; /* main green: buttons, links, headings */
+  --secondary: #154d31; /* deep green: gradients, footer */
+  --dark: #1b2a22; /* text and photo overlays */
+  --light: #f3f9f4; /* page background */
+  --amber: #f2b134; /* one highlight per screen */
   --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-  /* Same hues, a little deeper where white text sits on top, for legibility */
+  /* Deeper end of the same greens where white text sits on top */
   --gradient-strong: linear-gradient(135deg, var(--primary-dark), var(--secondary));
 
   /* Names used across the page scripts and game styles */
-  --green: #007f65; /* teal dark enough for text on white */
+  --green: #1f6b45; /* readable green for text on white */
   --green-dark: var(--dark);
-  --green-soft: #e0f7f0;
+  --green-soft: #dcefe2;
   --bg: var(--light);
   --surface: #ffffff;
-  --accent: var(--coral);
-  --accent-ink: #7a1f1f;
+  --accent: var(--amber);
+  --accent-ink: #3b2a00;
   --text: var(--dark);
-  --muted: #5b6672;
-  --line: #e3e8ee;
-  --success: #00a37c;
+  --muted: #4a5d52;
+  --line: #cfe0d4;
+  --success: #2e9e5b;
   --error: #c0392b;
   --radius: 15px;
   --s1: 8px;
@@ -105,7 +105,7 @@ textarea {
 }
 
 :focus-visible {
-  outline: 3px solid var(--secondary);
+  outline: 3px solid var(--amber);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -195,7 +195,7 @@ p + p {
 
 .site-header.scrolled,
 .site-header.menu-open {
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(243, 249, 244, 0.97);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   padding: 15px 0;
   color: var(--dark);
@@ -341,18 +341,29 @@ p + p {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-primary,
-.btn-accent {
+.btn-primary {
   background: var(--gradient-strong);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
+  box-shadow: 0 4px 15px rgba(31, 107, 69, 0.3);
 }
 
-.btn-primary:hover,
-.btn-accent:hover {
+.btn-primary:hover {
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 200, 150, 0.4);
+  box-shadow: 0 8px 25px rgba(31, 107, 69, 0.4);
+}
+
+.btn-accent {
+  background: var(--amber);
+  color: var(--accent-ink);
+  box-shadow: 0 4px 15px rgba(242, 177, 52, 0.35);
+}
+
+.btn-accent:hover {
+  background: #e09d1c;
+  color: var(--accent-ink);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(242, 177, 52, 0.45);
 }
 
 .btn-ghost,
@@ -401,7 +412,7 @@ p + p {
 }
 
 .section-grey {
-  background: #f5f7fa;
+  background: #e8f3eb;
 }
 
 .center {
@@ -568,12 +579,12 @@ p + p {
 }
 
 .tag-accent {
-  background: var(--secondary);
-  color: #fff;
+  background: var(--amber);
+  color: var(--accent-ink);
 }
 
 .tag-muted {
-  background: #e9edf2;
+  background: #e4ece6;
   color: var(--muted);
 }
 
@@ -600,7 +611,7 @@ p + p {
 
 .notice {
   border-left: 4px solid var(--primary);
-  background: #e9faf5;
+  background: #e8f5ec;
   padding: var(--s2);
   border-radius: 0 10px 10px 0;
   color: var(--text);
@@ -613,7 +624,7 @@ p + p {
 
 .notice-success {
   border-left-color: var(--success);
-  background: #e6f7f1;
+  background: #e6f5ec;
 }
 
 .prose {
@@ -663,7 +674,7 @@ p + p {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(26, 43, 60, 0.7);
+  background: rgba(21, 45, 32, 0.72);
 }
 
 .hero-content {
@@ -698,7 +709,7 @@ p + p {
   width: 600px;
   height: 600px;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  background: linear-gradient(45deg, rgba(0, 200, 150, 0.1), rgba(94, 53, 177, 0.1));
+  background: linear-gradient(45deg, rgba(46, 158, 91, 0.12), rgba(242, 177, 52, 0.12));
   z-index: 0;
   pointer-events: none;
   animation: float 15s ease-in-out infinite;
@@ -1013,7 +1024,7 @@ p + p {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(16, 36, 25, 0.76);
 }
 
 .join-content {
@@ -1055,7 +1066,7 @@ p + p {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--dark);
+  background: var(--secondary);
   color: #fff;
   padding: 80px 0 30px;
 }
@@ -1106,7 +1117,7 @@ p + p {
 
 .site-footer ul a:hover {
   opacity: 1;
-  color: var(--primary);
+  color: var(--amber);
   padding-left: 5px;
 }
 
@@ -1119,7 +1130,7 @@ p + p {
 }
 
 .footer-bottom a:hover {
-  color: var(--primary);
+  color: var(--amber);
 }
 
 /* ---------- Forms ---------- */
@@ -1150,7 +1161,7 @@ p + p {
   width: 100%;
   min-height: 52px;
   padding: 15px;
-  border: 1px solid #cfd6dd;
+  border: 1px solid #9db7a6;
   border-radius: 8px;
   background: #fff;
   font-size: 1rem;
@@ -1167,7 +1178,7 @@ p + p {
 .field textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.25);
+  box-shadow: 0 0 0 3px rgba(31, 107, 69, 0.25);
 }
 
 .field [aria-invalid="true"] {
@@ -1284,7 +1295,7 @@ p + p {
   flex: 1 1 240px;
   min-height: 46px;
   padding: 10px 18px;
-  border: 1px solid #cfd6dd;
+  border: 1px solid #9db7a6;
   border-radius: 50px;
   background: #fff;
 }
@@ -1292,7 +1303,7 @@ p + p {
 .search:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.25);
+  box-shadow: 0 0 0 3px rgba(31, 107, 69, 0.25);
 }
 
 /* ---------- Learn hub cards ---------- */
@@ -1315,7 +1326,7 @@ p + p {
 .resource .limitation {
   margin-top: 16px;
   font-size: 0.92rem;
-  border-left: 3px solid var(--secondary);
+  border-left: 3px solid var(--amber);
   padding-left: 10px;
   color: var(--text);
 }
