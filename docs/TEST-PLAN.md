@@ -35,5 +35,5 @@ Run this before every release. The first column records what was checked in the 
 - [ ] Turn on browser storage blocking: the game shows its warning and still plays.
 - [ ] Slow connection (DevTools "Slow 3G"): loading messages appear, and nothing breaks.
 - [ ] Lighthouse on the live URL: above 90 in every category.
-- [ ] Old links redirect on the live site (for example `/case%20studies.html` → `/learn.html#case-studies`).
+- [x] Old links redirect on the live site (for example `/case%20studies.html` → `/learn.html#case-studies`).
 - [ ] Hand the site to 3 to 5 students and one teacher (questions in `docs/PLAN.md`) and note where they get stuck.

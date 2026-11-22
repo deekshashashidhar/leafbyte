@@ -3,14 +3,14 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/PlayByte.html", "destination": "/playbyte.html", "permanent": true },
-    { "source": "/climate quest.html", "destination": "/climate-quest.html", "permanent": true },
-    { "source": "/game mechanics.html", "destination": "/climate-quest.html", "permanent": true },
-    { "source": "/case studies.html", "destination": "/learn.html#case-studies", "permanent": true },
-    { "source": "/research papers.html", "destination": "/learn.html#papers", "permanent": true },
-    { "source": "/more about sustainable tech.html", "destination": "/learn.html#basics", "permanent": true },
-    { "source": "/green ai.html", "destination": "/learn.html#basics", "permanent": true },
-    { "source": "/meet the heroes.html", "destination": "/heroes.html", "permanent": true },
-    { "source": "/our team.html", "destination": "/about.html", "permanent": true }
+    { "source": "/climate%20quest.html", "destination": "/climate-quest.html", "permanent": true },
+    { "source": "/game%20mechanics.html", "destination": "/climate-quest.html", "permanent": true },
+    { "source": "/case%20studies.html", "destination": "/learn.html#case-studies", "permanent": true },
+    { "source": "/research%20papers.html", "destination": "/learn.html#papers", "permanent": true },
+    { "source": "/more%20about%20sustainable%20tech.html", "destination": "/learn.html#basics", "permanent": true },
+    { "source": "/green%20ai.html", "destination": "/learn.html#basics", "permanent": true },
+    { "source": "/meet%20the%20heroes.html", "destination": "/heroes.html", "permanent": true },
+    { "source": "/our%20team.html", "destination": "/about.html", "permanent": true }
   ],
   "headers": [
     {
