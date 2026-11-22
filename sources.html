@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sources and methods | LeafByte</title>
+    <meta name="description" content="How LeafByte chooses, checks and corrects the facts on the site and in its games." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container prose">
+          <p class="eyebrow">About</p>
+          <h1>Sources and methods</h1>
+          <p class="lead">A site about sustainability is only useful if you can trust it. These are our rules.</p>
+          <p class="meta">Last reviewed 22 November 2026.</p>
+
+          <h2>How we choose sources</h2>
+          <ul>
+            <li>Every statistic carries a source, a year and a working link.</li>
+            <li>
+              We prefer international agencies (such as the IEA, ITU and WHO), government science bodies, peer-reviewed
+              papers and organisations' own reports, in that order.
+            </li>
+            <li>Where estimates vary, we show a range rather than a single number, and say what the range depends on.</li>
+            <li>Every case study names one limitation, so success stories read as honest rather than promotional.</li>
+            <li>We write in our own words and link out rather than copying long quotes.</li>
+          </ul>
+
+          <h2>How we check them</h2>
+          <ul>
+            <li>Each lesson and card shows when it was last checked.</li>
+            <li>We test every source link before publishing and review all statistics at least once a year.</li>
+            <li>Images of people come from Wikimedia Commons with their licence and author credited on the page.</li>
+          </ul>
+
+          <h2>Corrections</h2>
+          <p>When we find a mistake we fix it and, for significant ones, say so on the page. Recent corrections:</p>
+          <ul>
+            <li>
+              The chainsaw-detection case study was wrongly labelled as Google's Project Loon (an internet-balloon
+              project). It is now correctly credited to Rainforest Connection.
+            </li>
+            <li>
+              A 2023 review paper, "Artificial intelligence-based solutions for climate change: a review", was removed
+              from our reading list because the journal retracted it in 2025.
+            </li>
+            <li>
+              Unsourced figures from earlier versions of the site (such as a claim that a cooling project was "now
+              applied to sustainable AI model training") were removed or replaced with sourced ones.
+            </li>
+          </ul>
+          <p>Spotted an error? <a href="join.html?interest=contact">Tell us</a>.</p>
+
+          <h2 id="game">How Climate Quest uses its sources</h2>
+          <p>
+            Each card in Climate Quest pairs a problem with a solution and carries one fact with its source. The cards
+            are stored in one open file (<code>data/cards.json</code>), so anyone can check them. Scores are simple and
+            do not claim to measure real emissions:
+          </p>
+          <ul>
+            <li>Each correct match earns 2 seeds and 10 points.</li>
+            <li>Each wrong pair costs 1 energy. Energy left at the end adds 2 points per unit.</li>
+            <li>Matching every pair adds a 20-point bonus and introduces a new climate hero.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>

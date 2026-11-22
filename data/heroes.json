@@ -1,0 +1,244 @@
+{
+  "lastReviewed": "2026-11-22",
+  "notes": "Write facts in your own words and link out for quotes. Images come from Wikimedia Commons; keep the licence and author with each one. Fields: activism, science, policy, technology.",
+  "heroes": [
+    {
+      "id": "greta-thunberg",
+      "name": "Greta Thunberg",
+      "field": "activism",
+      "knownFor": "Started the school strike that grew into Fridays for Future",
+      "facts": [
+        {
+          "text": "On 20 August 2018, aged 15, she began striking from school outside the Swedish parliament to demand climate action.",
+          "source": {
+            "name": "Euronews",
+            "year": 2023,
+            "url": "https://www.euronews.com/green/2023/08/21/from-solo-protest-to-global-movement-five-years-of-fridays-for-future-in-pictures"
+          }
+        },
+        {
+          "text": "Her solo protest spread into Fridays for Future, a youth climate strike movement in many countries.",
+          "source": {
+            "name": "Euronews",
+            "year": 2023,
+            "url": "https://www.euronews.com/green/2023/08/21/from-solo-protest-to-global-movement-five-years-of-fridays-for-future-in-pictures"
+          }
+        }
+      ],
+      "link": {
+        "label": "Watch her 2018 TED talk",
+        "url": "https://www.ted.com/talks/greta_thunberg_the_disarming_case_to_act_right_now_on_climate_change"
+      },
+      "image": {
+        "src": "assets/img/heroes/greta-thunberg.jpg",
+        "alt": "Greta Thunberg in 2026",
+        "author": "Kushal Das",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Greta_Thunberg_in_May_2026_(cropped_3x4).jpg"
+      },
+      "relatedCard": "air-pollution",
+      "relatedLesson": {
+        "label": "Green tech basics",
+        "url": "learn.html#basics"
+      }
+    },
+    {
+      "id": "wangari-maathai",
+      "name": "Wangari Maathai",
+      "field": "activism",
+      "knownFor": "Founded the Green Belt Movement, which pays women to plant trees",
+      "facts": [
+        {
+          "text": "She founded the Green Belt Movement in Kenya in 1977. By 2004 it had planted over 30 million trees, mostly through women's groups.",
+          "source": {
+            "name": "Wangari Maathai, Nobel lecture",
+            "year": 2004,
+            "url": "https://www.nobelprize.org/prizes/peace/2004/maathai/lecture/"
+          }
+        },
+        {
+          "text": "In 2004 she became the first African woman to win the Nobel Peace Prize, for her work on sustainable development, democracy and peace.",
+          "source": {
+            "name": "NobelPrize.org",
+            "year": 2004,
+            "url": "https://www.nobelprize.org/prizes/peace/2004/maathai/facts/"
+          }
+        }
+      ],
+      "link": {
+        "label": "The Green Belt Movement",
+        "url": "https://www.greenbeltmovement.org/who-we-are"
+      },
+      "image": {
+        "src": "assets/img/heroes/wangari-maathai.jpg",
+        "alt": "Wangari Maathai in 2001",
+        "author": "Kingkongphoto & www.celebrity-photos.com",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Wangari_Maathai_in_2001.jpg"
+      },
+      "relatedCard": "logging",
+      "relatedLesson": {
+        "label": "Case study: listening for illegal logging",
+        "url": "learn.html?q=Rainforest#case-studies"
+      }
+    },
+    {
+      "id": "rachel-carson",
+      "name": "Rachel Carson",
+      "field": "science",
+      "knownFor": "Wrote Silent Spring, which warned about the harm pesticides do",
+      "facts": [
+        {
+          "text": "A marine biologist, she published Silent Spring in 1962, documenting how pesticides such as DDT harm wildlife and people.",
+          "source": {
+            "name": "American Chemical Society",
+            "year": 2012,
+            "url": "https://www.acs.org/education/whatischemistry/landmarks/rachel-carson-silent-spring.html"
+          }
+        },
+        {
+          "text": "The US Environmental Protection Agency banned most uses of DDT in 1972, eight years after her death.",
+          "source": {
+            "name": "US EPA",
+            "year": 1972,
+            "url": "https://www.epa.gov/archive/epa/aboutepa/ddt-ban-takes-effect.html"
+          }
+        }
+      ],
+      "link": {
+        "label": "Read about Silent Spring's legacy",
+        "url": "https://www.acs.org/education/whatischemistry/landmarks/rachel-carson-silent-spring.html"
+      },
+      "image": {
+        "src": "assets/img/heroes/rachel-carson.jpg",
+        "alt": "Rachel Carson, black and white portrait",
+        "author": "U.S. Fish and Wildlife Service",
+        "licence": "Public domain",
+        "licenceUrl": "",
+        "page": "https://commons.wikimedia.org/wiki/File:Rachel-Carson.jpg"
+      },
+      "relatedCard": "poaching",
+      "relatedLesson": {
+        "label": "Research papers on AI and climate",
+        "url": "learn.html#papers"
+      }
+    },
+    {
+      "id": "david-attenborough",
+      "name": "David Attenborough",
+      "field": "science",
+      "knownFor": "Natural history broadcaster whose films brought ocean plastic to public attention",
+      "facts": [
+        {
+          "text": "He presented the BBC's Blue Planet II in 2017. Its scenes of plastic in the ocean are widely credited with raising public concern about marine plastic pollution.",
+          "source": {
+            "name": "BBC Science Focus",
+            "year": 2018,
+            "url": "https://www.sciencefocus.com/nature/has-blue-planet-ii-had-an-impact-on-plastic-pollution/"
+          }
+        }
+      ],
+      "link": {
+        "label": "Blue Planet II on the BBC",
+        "url": "https://www.bbc.co.uk/programmes/p04tjbtx"
+      },
+      "image": {
+        "src": "assets/img/heroes/david-attenborough.jpg",
+        "alt": "David Attenborough in 2025",
+        "author": "UK Government (Flickr: ukgov)",
+        "licence": "OGL 3",
+        "licenceUrl": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3",
+        "page": "https://commons.wikimedia.org/wiki/File:David_Attenborough_in_2025.jpg"
+      },
+      "relatedCard": "fishing",
+      "relatedLesson": {
+        "label": "Case study: Global Fishing Watch",
+        "url": "learn.html?q=Fishing#case-studies"
+      }
+    },
+    {
+      "id": "vandana-shiva",
+      "name": "Vandana Shiva",
+      "field": "science",
+      "knownFor": "Physicist and activist who founded Navdanya to save native seeds",
+      "facts": [
+        {
+          "text": "She built Navdanya, India's biggest network of seed keepers and organic producers, to conserve native seeds.",
+          "source": {
+            "name": "Right Livelihood",
+            "year": 1993,
+            "url": "https://rightlivelihood.org/the-change-makers/find-a-laureate/vandana-shiva/"
+          }
+        },
+        {
+          "text": "She received the Right Livelihood Award in 1993.",
+          "source": {
+            "name": "Right Livelihood",
+            "year": 1993,
+            "url": "https://rightlivelihood.org/the-change-makers/find-a-laureate/vandana-shiva/"
+          }
+        }
+      ],
+      "link": {
+        "label": "Her Right Livelihood profile",
+        "url": "https://rightlivelihood.org/the-change-makers/find-a-laureate/vandana-shiva/"
+      },
+      "image": {
+        "src": "assets/img/heroes/vandana-shiva.jpg",
+        "alt": "Vandana Shiva speaking",
+        "author": "Augustus Binu",
+        "licence": "CC BY-SA 3.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dr._Vandana_Shiva_DS.jpg"
+      },
+      "relatedCard": "air-pollution",
+      "relatedLesson": {
+        "label": "Case study: AI for crop disease",
+        "url": "learn.html?q=Plantix#case-studies"
+      }
+    },
+    {
+      "id": "al-gore",
+      "name": "Al Gore",
+      "field": "policy",
+      "knownFor": "Former US Vice President who campaigns to communicate climate science",
+      "facts": [
+        {
+          "text": "He shared the 2007 Nobel Peace Prize with the Intergovernmental Panel on Climate Change (IPCC) for spreading knowledge about climate change.",
+          "source": {
+            "name": "NobelPrize.org",
+            "year": 2007,
+            "url": "https://www.nobelprize.org/prizes/peace/2007/summary/"
+          }
+        },
+        {
+          "text": "He founded The Climate Reality Project, which trains people to speak and organise for climate action.",
+          "source": {
+            "name": "The Climate Reality Project",
+            "year": 2024,
+            "url": "https://www.climaterealityproject.org/about"
+          }
+        }
+      ],
+      "link": {
+        "label": "His Nobel Prize page",
+        "url": "https://www.nobelprize.org/prizes/peace/2007/gore/facts/"
+      },
+      "image": {
+        "src": "assets/img/heroes/al-gore.jpg",
+        "alt": "Al Gore, official portrait from 1994",
+        "author": "US federal government",
+        "licence": "Public domain",
+        "licenceUrl": "",
+        "page": "https://commons.wikimedia.org/wiki/File:Al_Gore,_Vice_President_of_the_United_States,_official_portrait_1994.jpg"
+      },
+      "relatedCard": "ict-share",
+      "relatedLesson": {
+        "label": "Sources and methods",
+        "url": "sources.html"
+      }
+    }
+  ]
+}

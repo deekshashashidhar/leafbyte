@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meet our heroes | LeafByte</title>
+    <meta name="description" content="Climate heroes who changed how the world sees the planet, with sourced facts and links to learn more." />
+    <meta property="og:title" content="Meet our climate heroes | LeafByte" />
+    <meta property="og:description" content="Sourced profiles of people who changed how the world sees the planet." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Learn</p>
+          <h1>Meet our heroes</h1>
+          <p class="lead">
+            People whose courage and work changed how the world sees the planet. Meet them in Climate Quest, then read
+            their stories here. Every fact links to a source.
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="filters" role="group" aria-label="Filter by field" id="field-chips">
+          <button class="chip" type="button" data-field="" aria-pressed="true">Everyone</button>
+          <button class="chip" type="button" data-field="activism" aria-pressed="false">Activism</button>
+          <button class="chip" type="button" data-field="science" aria-pressed="false">Science</button>
+          <button class="chip" type="button" data-field="policy" aria-pressed="false">Policy</button>
+          <button class="chip" type="button" data-field="technology" aria-pressed="false">Technology</button>
+        </div>
+        <div class="grid grid-3" id="hero-list"><p class="meta">Loading heroes…</p></div>
+
+        <div class="card" style="margin-top: 48px">
+          <h2 style="font-size: 1.3rem">Who should we add?</h2>
+          <p style="margin: 8px 0 16px">
+            We want more heroes from technology, young changemakers and voices from the UAE and the Gulf. Nominate someone
+            whose work inspires you.
+          </p>
+          <a class="btn btn-primary" href="join.html?interest=nominate">Nominate a hero</a>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/js/site.js"></script>
+    <script>
+      (function () {
+        var esc = LB.escape;
+        var list = document.getElementById("hero-list");
+        var heroes = [];
+        var field = "";
+        var FIELD = { activism: "Activism", science: "Science", policy: "Policy", technology: "Technology" };
+
+        function card(h) {
+          var facts = h.facts.map(function (f) {
+            return "<li>" + esc(f.text) + ' <a href="' + esc(f.source.url) + '" target="_blank" rel="noopener">(' + esc(f.source.name) + ")</a></li>";
+          }).join("");
+          var licence = h.image.licenceUrl
+            ? '<a href="' + esc(h.image.licenceUrl) + '" target="_blank" rel="noopener">' + esc(h.image.licence) + "</a>"
+            : esc(h.image.licence);
+          return (
+            '<article class="card person" id="' + esc(h.id) + '">' +
+            '<img src="' + esc(h.image.src) + '" alt="' + esc(h.image.alt) + '" loading="lazy" width="330" height="248" />' +
+            '<div class="body">' +
+            '<div class="tags"><span class="tag">' + esc(FIELD[h.field] || h.field) + "</span></div>" +
+            "<h2 style=\"font-size:1.25rem\">" + esc(h.name) + "</h2>" +
+            "<p><strong>Known for:</strong> " + esc(h.knownFor) + ".</p>" +
+            "<ul>" + facts + "</ul>" +
+            '<div class="links">' +
+            '<a class="btn btn-ghost" href="' + esc(h.link.url) + '" target="_blank" rel="noopener">' + esc(h.link.label) + "</a>" +
+            '<a class="btn btn-ghost" href="' + esc(h.relatedLesson.url) + '">Related lesson</a>' +
+            "</div>" +
+            '<p class="credit">Photo: <a href="' + esc(h.image.page) + '" target="_blank" rel="noopener">' + esc(h.image.author) + "</a>, " + licence + ", via Wikimedia Commons</p>" +
+            "</div></article>"
+          );
+        }
+
+        function render() {
+          var shown = heroes.filter(function (h) { return !field || h.field === field; });
+          list.innerHTML = shown.length
+            ? shown.map(card).join("")
+            : '<p class="empty">No heroes in this field yet. <a href="join.html?interest=nominate">Nominate one</a>.</p>';
+        }
+
+        document.getElementById("field-chips").addEventListener("click", function (e) {
+          var chip = e.target.closest("[data-field]");
+          if (!chip) return;
+          field = chip.dataset.field;
+          document.querySelectorAll("#field-chips .chip").forEach(function (c) {
+            c.setAttribute("aria-pressed", String(c === chip));
+          });
+          render();
+        });
+
+        LB.loadJSON("data/heroes.json")
+          .then(function (data) {
+            heroes = data.heroes || [];
+            render();
+            if (location.hash) {
+              var target = document.getElementById(location.hash.slice(1));
+              if (target) target.scrollIntoView();
+            }
+          })
+          .catch(function () {
+            list.innerHTML = '<div class="notice notice-error">We could not load the heroes. Check your connection and refresh the page.</div>';
+          });
+      })();
+    </script>
+  </body>
+</html>

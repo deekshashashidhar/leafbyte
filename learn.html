@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Learn: the Knowledge Grove | LeafByte</title>
+    <meta name="description" content="Sourced case studies, research papers and basics on AI's environmental footprint and on AI helping the planet." />
+    <meta property="og:title" content="The Knowledge Grove | LeafByte" />
+    <meta property="og:description" content="Sourced case studies and research on green computing and AI for the planet." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Learn</p>
+          <h1>The Knowledge Grove</h1>
+          <p class="lead">
+            Real projects, research and basics on how technology affects the planet, and how it can help. Every claim
+            links to its source, and each case study names its limits.
+          </p>
+          <p class="meta" id="reviewed" style="margin-top: 8px"></p>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="tablist" role="tablist" aria-label="Learn sections">
+          <button role="tab" id="tab-case-studies" aria-controls="panel-case-studies" aria-selected="true">Case studies</button>
+          <button role="tab" id="tab-papers" aria-controls="panel-papers" aria-selected="false" tabindex="-1">Research papers</button>
+          <button role="tab" id="tab-basics" aria-controls="panel-basics" aria-selected="false" tabindex="-1">Basics</button>
+          <a class="chip" href="heroes.html" style="align-self: center; margin-left: auto; text-decoration: none">Meet our heroes →</a>
+        </div>
+
+        <div class="filters" id="filters">
+          <label class="visually-hidden" for="search">Search lessons</label>
+          <input class="search" id="search" type="search" placeholder="Search, for example cooling or e-waste" autocomplete="off" />
+          <div class="tags" id="topic-chips" role="group" aria-label="Filter by topic"></div>
+        </div>
+        <p class="meta" id="result-count" aria-live="polite"></p>
+
+        <section id="panel-case-studies" role="tabpanel" aria-labelledby="tab-case-studies" tabindex="0">
+          <div class="grid grid-2" id="case-list"><p class="meta">Loading case studies…</p></div>
+        </section>
+
+        <section id="panel-papers" role="tabpanel" aria-labelledby="tab-papers" tabindex="0" hidden>
+          <div class="grid grid-2" id="paper-list"><p class="meta">Loading papers…</p></div>
+        </section>
+
+        <section id="panel-basics" role="tabpanel" aria-labelledby="tab-basics" tabindex="0" hidden>
+          <div class="section-head">
+            <h2>Green tech basics</h2>
+            <p>Ten ways to cut technology's footprint, each with one thing you can try today.</p>
+          </div>
+          <div class="grid grid-2 basics">
+            <article class="card">
+              <h3>1. Pick the smallest model that works</h3>
+              <p>Bigger models use more energy for every answer. Smaller or distilled models, such as DistilBERT, often do the job well enough.</p>
+              <p class="meta"><strong>Try this today:</strong> before reaching for the largest model, test whether a smaller one meets your accuracy target.</p>
+            </article>
+            <article class="card">
+              <h3>2. Fine-tune instead of training from scratch</h3>
+              <p>Reusing a pre-trained model saves most of the compute. LoRA (low-rank adaptation) is a fine-tuning technique that updates only a small number of extra weights.</p>
+              <p class="meta"><strong>Try this today:</strong> search a model hub for a pre-trained model before starting a new training run.</p>
+            </article>
+            <article class="card">
+              <h3>3. Run on cleaner electricity</h3>
+              <p>The same job emits different amounts depending on the grid that powers it. Cloud regions and times of day vary in how clean their electricity is.</p>
+              <p class="meta"><strong>Try this today:</strong> check your cloud provider's published carbon data for your region before choosing where to deploy.</p>
+            </article>
+            <article class="card">
+              <h3>4. Make training cheaper</h3>
+              <p>Mixed-precision training, early stopping, pruning and quantisation all cut the compute a model needs, often with little loss in accuracy.</p>
+              <p class="meta"><strong>Try this today:</strong> turn on early stopping so training ends when the model stops improving.</p>
+            </article>
+            <article class="card">
+              <h3>5. Measure what you use</h3>
+              <p>You cannot cut what you do not count. Open-source tools such as <a href="https://codecarbon.io/" target="_blank" rel="noopener">CodeCarbon</a> estimate the emissions of your code as it runs.</p>
+              <p class="meta"><strong>Try this today:</strong> wrap one training script with an emissions tracker and note the result.</p>
+            </article>
+            <article class="card">
+              <h3>6. Keep hardware longer</h3>
+              <p>Much of a device's footprint comes from making it, and most e-waste is never formally recycled. Repairing and reusing devices avoids both.</p>
+              <p class="meta"><strong>Try this today:</strong> find out whether your old phone or laptop can be repaired, resold or properly recycled near you.</p>
+            </article>
+            <article class="card">
+              <h3>7. Write efficient code</h3>
+              <p>Efficient algorithms, less data moved over the network and fewer wasted cycles mean less hardware and less power.</p>
+              <p class="meta"><strong>Try this today:</strong> profile one slow function and fix the biggest bottleneck.</p>
+            </article>
+            <article class="card">
+              <h3>8. Cool data centres smarter</h3>
+              <p>Cooling can use a large share of a data centre's energy. Better airflow, liquid cooling and AI-controlled cooling all help.</p>
+              <p class="meta"><strong>Try this today:</strong> read the <a href="learn.html?q=cooling#case-studies">DeepMind cooling case study</a>.</p>
+            </article>
+            <article class="card">
+              <h3>9. Count the whole life cycle</h3>
+              <p>A life-cycle assessment counts manufacturing, use and disposal, not just electricity, so hidden impacts show up.</p>
+              <p class="meta"><strong>Try this today:</strong> read how the <a href="learn.html?q=BLOOM#case-studies">BLOOM team</a> counted theirs.</p>
+            </article>
+            <article class="card">
+              <h3>10. Ask for transparency</h3>
+              <p>Clear reporting of AI's energy and emissions lets researchers, buyers and governments make better choices.</p>
+              <p class="meta"><strong>Try this today:</strong> when you use an AI service, look for its published sustainability report.</p>
+            </article>
+          </div>
+          <p class="meta" style="margin-top: 24px">
+            Want a game round on these topics? <a href="climate-quest.html?topic=ai">Play Climate Quest with AI cards first</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/js/site.js"></script>
+    <script src="assets/js/learn.js"></script>
+  </body>
+</html>
