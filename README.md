@@ -39,6 +39,8 @@ Every fact needs a working source link. See `sources.html` for the rules.
 
 The site deploys to Vercel from the `main` branch. `vercel.json` redirects the old CodeSandbox file names (with spaces) to the new pages.
 
+CSS and JavaScript files are linked with a version tag (for example `site.css?v=2`). When you make a big change to a stylesheet or script, raise the number in every HTML file so returning visitors get the new version straight away.
+
 ## Docs
 
 - `docs/PLAN.md`: problem statement, MVP, flow, style, stack and data design
