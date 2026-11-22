@@ -1,14 +1,12 @@
 {
-  "name": "html-css",
+  "name": "leafbyte",
   "version": "1.0.0",
-  "description": "A template for HTML and CSS",
+  "private": true,
+  "description": "LeafByte: learn, play and build green computing. Static HTML, CSS and JavaScript.",
   "main": "index.html",
   "scripts": {
-    "start": "serve"
+    "start": "serve ."
   },
-  "keywords": ["html", "css"],
-  "author": "Ives van Hoorne",
-  "license": "MIT",
   "devDependencies": {
     "serve": "11.2.0"
   }

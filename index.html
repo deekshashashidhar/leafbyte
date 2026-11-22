@@ -2,1008 +2,169 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>  LeafByte | Sustainable Tech</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      /* Modern Color Palette */
-      :root {
-        --primary: #00c896;
-        --primary-dark: #009b7a;
-        --secondary: #5e35b1;
-        --dark: #1a2b3c;
-        --light: #f8f9fa;
-        --accent: #ff6b6b;
-        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-      }
-      /* Base Styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont,
-          sans-serif;
-        background-color: var(--light);
-        color: var(--dark);
-        line-height: 1.7;
-        overflow-x: hidden;
-      }
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-weight: 700;
-        line-height: 1.2;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .container {
-        width: 90%;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-      section {
-        padding: 100px 0;
-        position: relative;
-      }
-      /* Modern Button Styles */
-      .btn {
-        display: inline-block;
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        border: none;
-        cursor: pointer;
-      }
-      .btn-primary {
-        background: var(--gradient);
-        color: white;
-        box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
-      }
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 200, 150, 0.4);
-      }
-      .btn-outline {
-        background: transparent;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-      }
-      .btn-outline:hover {
-        background: var(--primary);
-        color: white;
-      }
-      /* Animated Background Elements */
-      .bg-blob {
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        background: linear-gradient(
-          45deg,
-          rgba(0, 200, 150, 0.1),
-          rgba(94, 53, 177, 0.1)
-        );
-        z-index: -1;
-        animation: float 15s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(50px, 50px) rotate(5deg);
-        }
-        50% {
-          transform: translate(0, 100px) rotate(0deg);
-        }
-        75% {
-          transform: translate(-50px, 50px) rotate(-5deg);
-        }
-      }
-      /* Header & Navigation */
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 25px 0;
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
-      header.scrolled {
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        padding: 15px 0;
-      }
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        font-size: 28px;
-        font-weight: 800;
-        color: var(--primary);
-        display: flex;
-        align-items: center;
-      }
-      .logo i {
-        margin-right: 10px;
-        font-size: 32px;
-      }
-      .nav-links {
-        display: flex;
-        list-style: none;
-      }
-      .nav-links li {
-        margin-left: 40px;
-      }
-      .nav-links a {
-        font-weight: 600;
-        position: relative;
-        padding-bottom: 5px;
-      }
-      .nav-links a:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary);
-        transition: width 0.3s ease;
-      }
-      .nav-links a:hover:after {
-        width: 100%;
-      }
-      .menu-toggle {
-        display: none;
-        font-size: 24px;
-        cursor: pointer;
-      }
-      /* Hero Section */
-      .hero {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        background: url("https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
-          no-repeat center center;
-        background-size: cover;
-        position: relative;
-        color: white;
-        text-align: center;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(26, 43, 60, 0.7);
-      }
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      .hero h1 {
-        font-size: 4rem;
-        margin-bottom: 20px;
-        line-height: 1.1;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        opacity: 0.9;
-      }
-      .hero-btns {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-      /* Features Section */
-      .features {
-        background-color: white;
-        text-align: center;
-      }
-      .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        color: var(--dark);
-        position: relative;
-        display: inline-block;
-      }
-      .section-title:after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--gradient);
-        border-radius: 2px;
-      }
-      .section-subtitle {
-        font-size: 1.1rem;
-        color: #666;
-        max-width: 700px;
-        margin: 0 auto 60px;
-      }
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-      }
-      .feature-card {
-        background: white;
-        border-radius: 15px;
-        padding: 40px 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: left;
-      }
-      .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      }
-      .feature-icon {
-        font-size: 2.5rem;
-        color: var(--primary);
-        margin-bottom: 20px;
-      }
-      .feature-title {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-      }
-      /* Stats Section */
-      .stats {
-        background: var(--gradient);
-        color: white;
-        text-align: center;
-        padding: 80px 0;
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-      }
-      .stat-item {
-        padding: 30px;
-      }
-      .stat-number {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-      }
-      .stat-label {
-        font-size: 1rem;
-        opacity: 0.9;
-      }
-      /*PlayByte Section */
-      .PlayByte {
-        background-color: #f5f7fa;
-      }
-      .PlayByte-content {
-        display: flex;
-        align-items: center;
-        gap: 60px;
-      }
-      .PlayByte-text {
-        flex: 1;
-      }
-      .PlayByte-image {
-        flex: 1;
-        position: relative;
-      }
-      .PlayByte-image img {
-        width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-      .PlayByte-image::after {
-        content: "";
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        width: 100%;
-        height: 100%;
-        border: 3px solid var(--primary);
-        border-radius: 20px;
-        z-index: -1;
-      }
-      /* Resources Section */
-      .resources {
-        background-color: white;
-      }
-      .resources-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-      .resource-card {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-      }
-      .resource-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      }
-      .resource-image {
-        height: 200px;
-        overflow: hidden;
-      }
-      .resource-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .resource-card:hover .resource-image img {
-        transform: scale(1.1);
-      }
-      .resource-content {
-        padding: 25px;
-      }
-      .resource-category {
-        display: inline-block;
-        background: var(--primary);
-        color: white;
-        padding: 5px 15px;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        margin-bottom: 15px;
-      }
-      .resource-title {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-      }
-      .resource-desc {
-        color: #666;
-        margin-bottom: 20px;
-      }
-      /* Join Section */
-      .join {
-        background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80")
-          no-repeat center center;
-        background-size: cover;
-        position: relative;
-        color: white;
-        text-align: center;
-      }
-      .join::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-      }
-      .join-content {
-        position: relative;
-        z-index: 1;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      .join-form {
-        background: white;
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        margin-top: 50px;
-        text-align: left;
-      }
-      .form-group {
-        margin-bottom: 25px;
-      }
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: var(--dark);
-      }
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-      }
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.2);
-        outline: none;
-      }
-      .form-row {
-        display: flex;
-        gap: 20px;
-      }
-      .form-row .form-group {
-        flex: 1;
-      }
-      /* Footer */
-      footer {
-        background: var(--dark);
-        color: white;
-        padding: 80px 0 30px;
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 40px;
-        margin-bottom: 60px;
-      }
-      .footer-column h3 {
-        font-size: 1.3rem;
-        margin-bottom: 25px;
-        position: relative;
-      }
-      .footer-column h3::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 40px;
-        height: 3px;
-        background: var(--primary);
-      }
-      .footer-links {
-        list-style: none;
-      }
-      .footer-links li {
-        margin-bottom: 15px;
-      }
-      .footer-links a {
-        opacity: 0.8;
-        transition: all 0.3s ease;
-      }
-      .footer-links a:hover {
-        opacity: 1;
-        color: var(--primary);
-        padding-left: 5px;
-      }
-      .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-      }
-      .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        transition: all 0.3s ease;
-      }
-      .social-links a:hover {
-        background: var(--primary);
-        transform: translateY(-3px);
-      }
-      .footer-bottom {
-        text-align: center;
-        padding-top: 30px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        opacity: 0.7;
-        font-size: 0.9rem;
-      }
-      /* Responsive Styles */
-      @media (max-width: 992px) {
-        .hero h1 {
-          font-size: 3rem;
-        }
-        .PlayByte-content {
-          flex-direction: column;
-        }
-        .PlayByte-image::after {
-          display: none;
-        }
-      }
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-        }
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: white;
-          flex-direction: column;
-          align-items: center;
-          padding: 40px 0;
-          transition: all 0.5s ease;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .nav-links.active {
-          left: 0;
-        }
-        .nav-links li {
-          margin: 15px 0;
-        }
-        .hero-btns {
-          flex-direction: column;
-          gap: 15px;
-        }
-        .btn {
-          width: 100%;
-        }
-        .form-row {
-          flex-direction: column;
-          gap: 0;
-        }
-      }
-      @media (max-width: 576px) {
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-        .section-title {
-          font-size: 2rem;
-        }
-        .stat-number {
-          font-size: 2.5rem;
-        }
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LeafByte: learn, play and build green computing</title>
+    <meta name="description" content="LeafByte helps students and early-career developers understand how AI and digital technology affect the climate, through a game, sourced lessons and a community." />
+    <meta property="og:title" content="LeafByte: the fun way into green computing" />
+    <meta property="og:description" content="Play Climate Quest, read sourced lessons and join the Green Code Movement." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/site.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header id="header">
-      <div class="container">
-        <nav class="navbar"> 
-          <a href="#" class="logo">
-            <i class="fas fa-leaf"></i>
-            LeafByte
-          </a>
-          <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
+    <div id="site-header"></div>
+
+    <main id="main">
+      <section class="home-hero">
+        <div class="container grid">
+          <div>
+            <p class="eyebrow">Built for students, by students</p>
+            <h1>Learn it, play it, <span>build it</span>.</h1>
+            <p class="lead" style="margin-top: 16px">
+              LeafByte helps students and early-career developers understand how AI and digital technology affect the
+              climate, so you can make greener choices in what you build and use.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="playbyte.html">Play now</a>
+              <a class="btn btn-ghost" href="learn.html">Start learning</a>
+            </div>
           </div>
-          <ul class="nav-links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Solutions</a></li>
-            <li><a href="#playbyte">PlayByte</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#join">Join Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Play, Learn, Code Green, & Shape Tomorrow</h1>
-          <p>
-            To make AI & technology sustainable and eco-friendly for a greener
-            tomorrow, join the "Green Code Movement" now!
-          </p>
-          <div class="hero-btns">
-            <a href="#join" class="btn btn-primary"
-              >Join the Green Code Movement</a
-            >
-            <a href="#features" class="btn btn-outline">Explore Solutions</a>
+          <svg class="hero-art" viewBox="0 0 320 260" role="img" aria-label="A leaf growing out of a circuit board">
+            <rect x="20" y="170" width="280" height="70" rx="8" fill="#DCEFE2" />
+            <g fill="none" stroke="#1F6B45" stroke-width="3" stroke-linecap="round">
+              <path d="M40 205h50l15-15h40" />
+              <path d="M280 215h-60l-15 15h-45" />
+              <path d="M160 230v-40" />
+            </g>
+            <g fill="#1F6B45">
+              <circle cx="40" cy="205" r="5" />
+              <circle cx="280" cy="215" r="5" />
+              <circle cx="160" cy="230" r="5" />
+            </g>
+            <rect x="130" y="178" width="60" height="24" rx="4" fill="#1F6B45" />
+            <path d="M160 178c0-50-10-80-55-110 40 0 70 30 55 110z" fill="#2E9E5B" />
+            <path d="M160 178c5-60 30-100 90-125 -10 55-40 105-90 125z" fill="#1F6B45" />
+            <path d="M160 176c10-40 35-80 75-105" stroke="#F3F9F4" stroke-width="3" fill="none" stroke-linecap="round" />
+            <g fill="#F2B134">
+              <rect x="235" y="30" width="10" height="10" />
+              <rect x="250" y="45" width="8" height="8" />
+              <rect x="88" y="52" width="8" height="8" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="section-tight section-alt" aria-labelledby="how-title">
+        <div class="container">
+          <h2 id="how-title" class="visually-hidden">How LeafByte works</h2>
+          <div class="grid grid-3 steps">
+            <div class="step">
+              <h3>Learn</h3>
+              <p>Short, sourced lessons and case studies on AI's footprint and on AI helping the planet.</p>
+              <p><a href="learn.html">Open the Learn hub</a></p>
+            </div>
+            <div class="step">
+              <h3>Play</h3>
+              <p>Match climate problems to solutions in Climate Quest and grow a Hope Garden that remembers you.</p>
+              <p><a href="climate-quest.html">Play Climate Quest</a></p>
+            </div>
+            <div class="step">
+              <h3>Build</h3>
+              <p>Join the Green Code Movement to write, translate, design or code with us.</p>
+              <p><a href="join.html">Join the movement</a></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="bg-blob" style="top: -300px; right: -300px"></div>
-    </section>
-    <!-- Features Section -->
-    <section class="features" id="features">
-      <div class="container">
-        <h2 class="section-title">Our Sustainable AI & Tech Solutions</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <h3 class="feature-title">Efficient AI Models</h3>
-            <p>
-              Green AI mindset - Focus on energy-efficient algorithms rather
-              than just accuracy.<br />
-              Low-Rank Adaptation - Use smaller, optimized models like
-              DistilBERT or LoRA.<br />
-              Example: OpenAI’s GPT-4-turbo is designed to be cheaper and faster
-              than GPT-4, reducing compute usage.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h3 class="feature-title">Green Data Centers</h3>
-            <p>
-              Shift to renewable energy sources like wind, solar, and hydropower
-              to run data centers.<br />
-              Tech giants like Google and Microsoft aim for carbon-negative
-              operations by 2030.<br />
-              Example: Google Cloud operates at over 90% carbon-free energy in
-              several regions.<br />
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Model Reuse and Transfer Learning</h3>
-            <p>
-              Instead of training models from scratch, reuse pre-trained models
-              and fine-tune them.<br />
-              This saves significant computational resources and emissions.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Geographical Optimization</h3>
-            <p>
-              Run energy-intensive training in regions with abundant green
-              energy or cooler climates to reduce cooling energy needs.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Efficient Hardware</h3>
-            <p>
-              Use specialized chips like TPUs, GPUs, or neuromorphic hardware
-              that offer better performance-per-watt.<br />
-              Upgrade to newer, more power-efficient server architectures.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Better Training Techniques</h3>
-            <p>
-              Use mixed-precision training to reduce compute costs.<br />
-              Apply techniques like early stopping, pruning, or quantization to
-              reduce model size and energy use.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Carbon Offsetting & Accountability</h3>
-            <p>
-              Companies can track, report, and offset AI-related emissions using
-              tools like ML CO2 calculators.<br />
-              Invest in carbon offset projects—e.g., reforestation or renewable
-              energy installations.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Environmental Impact Audits</h3>
-            <p>
-              Conduct life-cycle assessments of AI systems to evaluate their
-              true environmental cost.<br />
-              Promote transparency in reporting emissions from AI projects.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class=""></i>
-            </div>
-            <h3 class="feature-title">Sustainable AI Policy & Research</h3>
-            <p>
-              Encourage government regulation that incentivizes sustainable AI
-              development.<br />
-              Support academic research on reducing the environmental impact of
-              deep learning.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="bg-blob" style="bottom: -400px; left: -300px"></div>
-    </section>
-    <!-- Stats Section -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">95 kg</div>
-            <div class="stat-label">Of CO₂ = producing 1 smart phone</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">~4%</div>
-            <div class="stat-label">
-              Global CO₂ emissions by Information and Communication Tech</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">~7%</div>
-            <div class="stat-label">
-              Global electricity used for Information and Communication Tech</div>
-              alone
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">~129 TWh/year</div>
-            <div class="stat-label">Consumed while Bitcoin mining</div>
-          </div>
-        <div class="stat-item">
-          <div class="stat-number">130 million tons</div>
-          <div class="stat-label">CO₂ produced by crypto & blockchain</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">62 million tons</div>
-          <div class="stat-label">Global e-waste generated in 2024</div>
-      </div>
-    </section>
-    <!-- PlayByte Section -->
-    <section class="PlayByte" id="playbyte">
-      <div class="container">
-        <div class="PlayByte-content">
-          <div class="PlayByte-text">
-            <h2 class="section-title">PlayByte: Climate Challenge</h2>
-            <p>
-              Experience our interactive platform that makes understanding AI
-              and Technology's environmental impact engaging and educational.
-            </p>
-            <a
-              href="PlayByte.html"
-              class="btn btn-primary"
-              style="margin-top: 30px"
-              >Play Now</a
-            >
-          </div>
-          <div class="playbyte-image">
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Resources Section -->
-    <section class="resources" id="resources">
-      <div class="container">
-        <h2 class="section-title">Knowledge Grove</h2>
-        <p class="section-subtitle">
-          Explore our library of resources to learn about sustainable AI and
-          tech practices!
-        </p>
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div class="resource-image">
-              <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Sustainable AI"
-              />
-            </div>
-            <div class="resource-content">
-              <span class="resource-category">Whitepaper</span>
-              <h3 class="resource-title">The Future of Green AI</h3>
-              <p class="resource-desc">
-                Comprehensive guide to implementing sustainable practices in
-                machine learning pipelines.
+      </section>
+
+      <section class="section" aria-labelledby="play-title">
+        <div class="container">
+          <div class="card feature-card">
+            <div>
+              <p class="eyebrow">PlayByte</p>
+              <h2 id="play-title">Climate Quest</h2>
+              <p style="margin-top: 8px">
+                Pair each climate problem with its solution. Every match teaches one real, sourced fact and earns seeds
+                for your Hope Garden. A round takes about three minutes.
               </p>
-              <a
-                href="green ai.html"
-                class="btn btn-outline"
-                style="padding: 10px 20px"
-                >Read more</a
-              >
+              <div class="card-actions" style="margin-top: 24px">
+                <a class="btn btn-accent" href="climate-quest.html">Play now</a>
+                <a class="btn btn-ghost" href="playbyte.html">See all games</a>
+              </div>
             </div>
-          </div>
-          <div class="resource-card">
-            <div class="resource-image">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="AI Impact"
-              />
-            </div>
-            <div class="resource-content">
-              <span class="resource-category">Video Series</span>
-              <h3 class="resource-title">AI's Environmental Footprint</h3>
-              <p class="resource-desc">
-                Five-part documentary exploring the real impact of artificial
-                intelligence on our planet.
-              </p>
-              <a href="#" class="btn btn-outline" style="padding: 10px 20px"
-                >Coming Soon!</a
-              >
-            </div>
-          </div>
-          <div class="resource-card">
-            <div class="resource-image">
-              <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Community"
-              />
-            </div>
-            <div class="resource-content">
-              <span class="resource-category">Community</span>
-              <h3 class="resource-title">Stories & Sparks</h3>
-              <p class="resource-desc">
-                Join our community of innovators sharing experiences and ideas
-                for sustainable AI.
-              </p>
-              <a href="#" class="btn btn-outline" style="padding: 10px 20px"
-                >Coming Soon!</a
-              >
+            <div class="garden-preview" aria-live="polite">
+              <div id="garden-status">Your Hope Garden is waiting for its first seed.</div>
+              <div class="plants" id="garden-plants" aria-hidden="true">🌱</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Join Section -->
-    <section class="join" id="join">
-      <div class="container">
-        <div class="join-content">
-          <h2 class="section-title">Join the Green Code Movement</h2>
-          <p class="section-subtitle">
-            Be part of the solution. Together, we can make AI and tech both
-            powerful and planet-friendly.
-          </p>
-          <div class="join-form">
-            <form>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" id="name" placeholder="Enter your name" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Enter your email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                  />
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="organization">Organization</label>
-                  <input
-                    type="text"
-                    id="organization"
-                    placeholder="Your company or school"
-                  />
-                </div>
-                <div class="form-g roup">
-                  <label for="interest">Primary Interest</label>
-                  <select id="interest">
-                    <option value="">Select your interest</option>
-                    <option value="research">AI Research</option>
-                    <option value="development">Software Development</option>
-                    <option value="sustainability">
-                      Environmental Science
-                    </option>
-                    <option value="education">Education</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message">How would you like to contribute?</label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  placeholder="Your ideas or expertise"
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width: 100%">
-                Join the Movement
-              </button>
-            </form>
+      </section>
+
+      <section class="section section-alt" aria-labelledby="stats-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">The numbers</p>
+            <h2 id="stats-title">Tech has a footprint you can measure</h2>
+            <p>Every figure on LeafByte links to its source. <a href="sources.html">How we choose sources</a>.</p>
+          </div>
+          <div class="grid grid-3">
+            <div class="card stat">
+              <span class="stat-number">415 TWh</span>
+              <span class="stat-label">Electricity used by the world's data centres in 2024, about 1.5% of the global total</span>
+              <p class="source">Source: <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">IEA, Energy and AI</a> (2025)</p>
+            </div>
+            <div class="card stat">
+              <span class="stat-number">62 Mt</span>
+              <span class="stat-label">E-waste produced in 2022; only 22.3% was documented as properly recycled</span>
+              <p class="source">Source: <a href="https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" target="_blank" rel="noopener">Global E-waste Monitor</a> (2024)</p>
+            </div>
+            <div class="card stat">
+              <span class="stat-number">2.1–3.9%</span>
+              <span class="stat-label">Estimated share of global greenhouse gas emissions from information and communication tech</span>
+              <p class="source">Source: <a href="https://doi.org/10.1016/j.patter.2021.100340" target="_blank" rel="noopener">Freitag et al., Patterns</a> (2021)</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>LeafByte</h3>
-            <p>
-              Bridging the gap between AI and technological innovation with
-              environmental responsibility for a sustainable digital future.
+      </section>
+
+      <section class="section" aria-labelledby="latest-title">
+        <div class="container grid grid-2">
+          <div class="card flex">
+            <p class="eyebrow">Latest lesson</p>
+            <h2 id="latest-title" style="font-size: 1.3rem">What did it cost to train an open AI model?</h2>
+            <p style="margin: 8px 0 16px">
+              The team behind the BLOOM language model counted everything, including the hardware. Counting the hardware roughly doubled the
+              total.
             </p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fa5b fa-youtube"></i></a>
-            </div>
+            <div class="card-actions"><a class="btn btn-ghost" href="learn.html?q=BLOOM#case-studies">Read the case study</a></div>
           </div>
-          <div class="footer-column">
-            <h3>Resources</h3>
-            <ul class="footer-links">
-              <li><a href="research papers.html">Research Papers</a></li>
-              <li><a href="case studies.html">Case Studies</a></li>
-              <li><a href="meet the heroes.html">Meet Our Heroes</a></li>
-              <li>
-                <a href="more about sustainable tech.html"
-                  >More About Sustainable Tech</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>About Us</h3>
-            <ul class="footer-links">
-              <li><a href="our team.html">Our Team</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+          <div class="card flex" id="join">
+            <p class="eyebrow">Green Code Movement</p>
+            <h2 style="font-size: 1.3rem">Help make tech planet-friendly</h2>
+            <p style="margin: 8px 0 16px">
+              Students, educators, volunteers and organisations are welcome. Tell us how you would like to help and we
+              will send you a first task.
+            </p>
+            <div class="card-actions"><a class="btn btn-primary" href="join.html">Join the movement</a></div>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>
-            &copy; 2025 LeafByte. All rights reserved. |
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-    
-      // Mobile Menu Toggle
-      <script>
-      const mobileMenu = document.getElementById("mobile-menu");
-      const navLinks = document.getElementById("nav-links");
-      mobileMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-      // Header Scroll Effect
-      const header = document.getElementById("header");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-      // Smooth Scrolling for Anchor Links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
-            });
-            // Close mobile menu if open
-            navLinks.classList.remove("active");
-          }
-        });
-      });
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/js/site.js"></script>
+    <script>
+      (function () {
+        var save = LB.storage.get("leafbyte.save.v1", null);
+        if (!save || !save.plants) return;
+        var status = document.getElementById("garden-status");
+        var plants = document.getElementById("garden-plants");
+        var count = save.plants.length;
+        status.textContent =
+          "Your Hope Garden: " + count + (count === 1 ? " plant" : " plants") + ", " + (save.seeds || 0) + (save.seeds === 1 ? " seed" : " seeds") + " saved.";
+        plants.textContent = save.plants.slice(-12).map(function (p) { return p.icon; }).join("") || "🌱";
+      })();
     </script>
   </body>
 </html>
