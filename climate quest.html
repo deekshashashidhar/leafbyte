@@ -17,6 +17,47 @@
         --light: #f8f9fa;
         --accent: #ff6b6b;
         --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        --header-h: 90px;
+      }
+
+      /* Reset */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-h);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        display: block;
+        height: auto;
+      }
+
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 3px;
       }
 
       /* Header Styles */
@@ -32,8 +73,8 @@
       }
 
       header.scrolled {
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        background: rgba(26, 43, 60, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         padding: 15px 0;
       }
 
@@ -72,10 +113,6 @@
         color: var(--light);
       }
 
-      header.scrolled .nav-links a {
-        color: var(--dark);
-      }
-
       .nav-links a:after {
         content: "";
         position: absolute;
@@ -87,7 +124,8 @@
         transition: width 0.3s ease;
       }
 
-      .nav-links a:hover:after {
+      .nav-links a:hover:after,
+      .nav-links a:focus-visible:after {
         width: 100%;
       }
 
@@ -96,10 +134,49 @@
         font-size: 24px;
         cursor: pointer;
         color: var(--light);
+        padding: 4px 8px;
       }
 
-      header.scrolled .menu-toggle {
-        color: var(--dark);
+      /* Game Navigation */
+      .game-nav {
+        margin: 0 auto 30px;
+      }
+
+      .game-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .game-nav a,
+      .game-nav button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 200, 150, 0.25);
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .game-nav a:hover {
+        background: rgba(0, 200, 150, 0.15);
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .game-nav button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .game-nav i {
+        color: var(--primary);
       }
 
       /* Page Header */
@@ -130,7 +207,7 @@
         color: var(--light);
         line-height: 1.7;
         overflow-x: hidden;
-        padding-top: 160px;
+        padding-top: calc(var(--header-h) + 20px);
       }
 
       .container {
@@ -232,6 +309,7 @@
       }
 
       .game-card {
+        display: block;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 15px;
         padding: 30px;
@@ -243,6 +321,17 @@
         transform: translateY(-10px);
         background: rgba(0, 200, 150, 0.1);
         box-shadow: 0 15px 40px rgba(0, 200, 150, 0.1);
+      }
+
+      a.game-card:focus-visible {
+        background: rgba(0, 200, 150, 0.1);
+      }
+
+      .card-cta {
+        display: inline-block;
+        margin-top: 15px;
+        font-weight: 600;
+        color: var(--primary);
       }
 
       .game-card h3 {
@@ -284,6 +373,7 @@
 
       .garden-preview img {
         max-width: 100%;
+        margin: 50px auto 0;
         border-radius: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         transition: transform 0.5s ease;
@@ -453,47 +543,52 @@
       }
 
       @media (max-width: 768px) {
+        :root {
+          --header-h: 80px;
+        }
+
+        header {
+          padding: 20px 0;
+        }
+
         .menu-toggle {
           display: block;
         }
 
+        /* Positioned against the fixed header, so it always opens right
+           below it whether or not the header has shrunk on scroll. */
         .nav-links {
-          position: fixed;
-          top: 80px;
+          position: absolute;
+          top: 100%;
           left: -100%;
           width: 100%;
-          height: calc(100vh - 80px);
+          height: 100vh;
           background: var(--dark);
           flex-direction: column;
           align-items: center;
           padding: 40px 0;
-          transition: all 0.5s ease;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        header.scrolled .nav-links {
-          background: white;
+          transition: left 0.5s ease, visibility 0.5s;
+          visibility: hidden;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-links.active {
           left: 0;
+          visibility: visible;
         }
 
         .nav-links li {
           margin: 15px 0;
         }
 
-        .game-nav {
-          top: 80px;
-        }
-
-        body {
-          padding-top: 140px;
-        }
-
         .game-nav ul {
-          flex-wrap: wrap;
           padding: 0 20px;
+        }
+
+        .game-hero {
+          height: auto;
+          min-height: 60vh;
+          padding: 60px 0;
         }
 
         .game-hero h1 {
@@ -514,30 +609,54 @@
           font-size: 2rem;
         }
 
-        .game-nav li {
-          font-size: 0.9rem;
-          padding: 5px 10px;
+        .game-nav a,
+        .game-nav button {
+          font-size: 0.85rem;
+          padding: 8px 14px;
         }
 
         .section-title {
           font-size: 1.8rem;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .game-hero p {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>
-<!-- Header -->
-<!-- Header -->
-<header id="header">
+    <!-- Header -->
+    <header id="header">
   <div class="container">
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main">
       <a href="index.html" class="logo">
-        <i class="fas fa-leaf"></i>
+        <i class="fas fa-leaf" aria-hidden="true"></i>
         LeafByte
       </a>
-      <div class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </div>
+      <button
+        type="button"
+        class="menu-toggle"
+        id="mobile-menu"
+        aria-label="Open menu"
+        aria-controls="nav-links"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#features">Solutions</a></li>
@@ -550,28 +669,47 @@
 </header>
 
     <!-- Game Navigation -->
-    <div class="game-nav">
+    <nav class="game-nav container" aria-label="Game">
       <ul>
-        <li><i class="fas fa-puzzle-piece"></i> How to Play</li>
-        <li><i class="fas fa-seedling"></i> Hope Garden</li>
-        <li><i class="fas fa-chart-line"></i> Climate Facts</li>
-        <li><i class="fas fa-users"></i> Meet Our Heroes</li>
-        <li><i class="fas fa-cog"></i> Settings</li>
+        <li>
+          <a href="#about"
+            ><i class="fas fa-puzzle-piece" aria-hidden="true"></i> How to
+            Play</a
+          >
+        </li>
+        <li>
+          <a href="#garden"
+            ><i class="fas fa-seedling" aria-hidden="true"></i> Hope Garden</a
+          >
+        </li>
+        <li>
+          <a href="#features"
+            ><i class="fas fa-chart-line" aria-hidden="true"></i> Climate
+            Facts</a
+          >
+        </li>
+        <li>
+          <a href="meet the heroes.html"
+            ><i class="fas fa-users" aria-hidden="true"></i> Meet Our Heroes</a
+          >
+        </li>
+        <li>
+          <button type="button" disabled title="Coming soon">
+            <i class="fas fa-cog" aria-hidden="true"></i> Settings
+          </button>
+        </li>
       </ul>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="game-hero">
+    <section class="game-hero container">
       <div class="hero-content">
         <h1>CLIMATE QUEST</h1>
         <p>A puzzle-powered journey to heal the planet</p>
-        <button
-          class="btn btn-primary"
-          onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });"
-        >
-          <i class="fas fa-seedling"></i> Ready to plant the future: Start Your
-          Quest!
-        </button>
+        <a href="#about" class="btn btn-primary">
+          <i class="fas fa-seedling" aria-hidden="true"></i> Ready to plant the
+          future: Start Your Quest!
+        </a>
       </div>
     </section>
 
@@ -585,17 +723,17 @@
           climate heroes. And watch the world change — one tree at a time.
         </p>
 
-        <a href="game mechanics.html"
         <div class="game-cards">
-          <div class="game-card">
-            <h3><i class="fas fa-clone"></i> Match Cards</h3>
-          
+          <a href="game mechanics.html" class="game-card">
+            <h3><i class="fas fa-clone" aria-hidden="true"></i> Match Cards</h3>
             <p>
               Connect climate problems with their solutions through an engaging
               matching game mechanic.
             </p>
-          </div>
-        </a>
+            <span class="card-cta"
+              >Play level one <i class="fas fa-arrow-right" aria-hidden="true"></i
+            ></span>
+          </a>
 
           <div class="game-card">
             <h3><i class="fas fa-tree"></i> Garden Visual</h3>
@@ -616,7 +754,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="game-section">
+    <section class="game-section" id="features">
       <div class="container">
         <h2 class="section-title">Feature Highlights</h2>
 
@@ -653,15 +791,18 @@
     </section>
 
     <!-- Garden Preview -->
-    <section class="game-section">
+    <section class="game-section" id="garden">
       <div class="container">
         <div class="garden-preview">
           <h2 class="section-title">
-            <i class="fas fa-seedling"></i> Your Hope Garden
+            <i class="fas fa-seedling" aria-hidden="true"></i> Your Hope Garden
           </h2>
           <img
             src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
             alt="Hope Garden Preview"
+            width="800"
+            height="533"
+            loading="lazy"
           />
         </div>
       </div>
@@ -713,10 +854,18 @@
               environmental responsibility for a sustainable digital future.
             </p>
             <div class="social-links">
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="GitHub"
+                ><i class="fab fa-github" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube" aria-hidden="true"></i
+              ></a>
             </div>
           </div>
 
@@ -758,28 +907,47 @@
       const mobileMenu = document.getElementById("mobile-menu");
       const navLinks = document.getElementById("nav-links");
 
+      function setMenu(open) {
+        navLinks.classList.toggle("active", open);
+        mobileMenu.setAttribute("aria-expanded", String(open));
+        mobileMenu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        mobileMenu.querySelector("i").className = open
+          ? "fas fa-times"
+          : "fas fa-bars";
+      }
+
       mobileMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+        setMenu(!navLinks.classList.contains("active"));
       });
 
-      // Header Scroll Effect
+      // Close the menu after picking a link or pressing Escape
+      navLinks.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => setMenu(false))
+      );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setMenu(false);
+      });
+
+      // Header Scroll Effect (once per frame at most)
       const header = document.getElementById("header");
+      let ticking = false;
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
+      function updateHeader() {
+        header.classList.toggle("scrolled", window.scrollY > 100);
+        ticking = false;
+      }
 
-      // Smooth scrolling for game nav links
-      document.querySelectorAll(".game-nav li").forEach((item) => {
-        item.addEventListener("click", function () {
-          // This would be replaced with actual game navigation logic
-          alert("Game navigation would go to: " + this.textContent.trim());
-        });
-      });
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateHeader);
+          }
+        },
+        { passive: true }
+      );
+      updateHeader();
     </script>
   </body>
 </html>
