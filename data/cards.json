@@ -1,0 +1,114 @@
+{
+  "lastReviewed": "2026-11-22",
+  "notes": "Each card pairs a problem with a solution. Difficulty 1 cards appear on Seedling, 1-2 on Sapling, all on Old Growth. Every fact needs a source with a working URL. Add new cards here; the game picks them up automatically.",
+  "cards": [
+    {
+      "id": "dc-electricity",
+      "problem": "Data centres need more and more electricity",
+      "solution": "Power them with clean energy and run efficient software",
+      "fact": "Data centres used about 415 TWh of electricity in 2024, around 1.5% of the world's total. The IEA expects that to roughly double to about 945 TWh by 2030.",
+      "source": { "name": "IEA, Energy and AI", "year": 2025, "url": "https://www.iea.org/reports/energy-and-ai/executive-summary" },
+      "topic": "data-centres",
+      "difficulty": 1
+    },
+    {
+      "id": "cooling",
+      "problem": "Cooling servers wastes a lot of energy",
+      "solution": "Let an AI model fine-tune the cooling system",
+      "fact": "DeepMind's machine-learning system cut the energy Google used for cooling its data centres by up to 40% in tests.",
+      "source": { "name": "Google DeepMind", "year": 2016, "url": "https://deepmind.google/discover/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-by-40/" },
+      "topic": "data-centres",
+      "difficulty": 1
+    },
+    {
+      "id": "e-waste",
+      "problem": "Mountains of old electronics",
+      "solution": "Repair, reuse and recycle devices",
+      "fact": "The world produced a record 62 million tonnes of e-waste in 2022, and only 22.3% of it was documented as properly collected and recycled.",
+      "source": { "name": "ITU and UNITAR, Global E-waste Monitor 2024", "year": 2024, "url": "https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx" },
+      "topic": "hardware",
+      "difficulty": 1
+    },
+    {
+      "id": "air-pollution",
+      "problem": "Smoggy air from burning fossil fuels",
+      "solution": "Switch power grids to renewable energy",
+      "fact": "In 2019, 99% of the world's population lived where the WHO's air quality guideline levels were not met.",
+      "source": { "name": "World Health Organization", "year": 2024, "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health" },
+      "topic": "energy",
+      "difficulty": 1
+    },
+    {
+      "id": "sea-level",
+      "problem": "Rising sea levels",
+      "solution": "Cut greenhouse gas emissions",
+      "fact": "Global average sea level has risen about 21 to 24 cm since 1880, mostly from melting ice and seawater expanding as it warms.",
+      "source": { "name": "NOAA Climate.gov", "year": 2024, "url": "https://www.climate.gov/news-features/understanding-climate/climate-change-global-sea-level" },
+      "topic": "climate",
+      "difficulty": 1
+    },
+    {
+      "id": "training-from-scratch",
+      "problem": "Training huge AI models from scratch",
+      "solution": "Fine-tune a model that already exists",
+      "fact": "A 2019 study estimated that training one large language model with an automated architecture search emitted about 284 tonnes of CO2e. That is an upper-end case: a single training run of the same model was estimated at under 0.1 tonnes.",
+      "source": { "name": "Strubell, Ganesh and McCallum, ACL", "year": 2019, "url": "https://aclanthology.org/P19-1355/" },
+      "topic": "ai",
+      "difficulty": 2
+    },
+    {
+      "id": "logging",
+      "problem": "Illegal logging deep in the rainforest",
+      "solution": "Listen for chainsaws with AI-powered sensors",
+      "fact": "Rainforest Connection hides recycled, solar-powered phones in trees. Machine learning listens to the audio for chainsaws and logging trucks, then alerts local rangers.",
+      "source": { "name": "Google blog, Topher White", "year": 2018, "url": "https://blog.google/technology/ai/fight-against-illegal-deforestation-tensorflow/" },
+      "topic": "nature",
+      "difficulty": 2
+    },
+    {
+      "id": "fishing",
+      "problem": "Illegal fishing far out at sea",
+      "solution": "Track ships with satellite data and machine learning",
+      "fact": "Global Fishing Watch, started by Oceana, SkyTruth and Google, uses ships' position signals and machine learning to map industrial fishing, and publishes the map for free.",
+      "source": { "name": "Google blog", "year": 2016, "url": "https://blog.google/products/maps/mapping-global-fishing-activity-machine-learning/" },
+      "topic": "oceans",
+      "difficulty": 2
+    },
+    {
+      "id": "poaching",
+      "problem": "Poachers' snares hidden in wildlife parks",
+      "solution": "Predict poaching hotspots to guide ranger patrols",
+      "fact": "PAWS, built by Milind Tambe's team, maps where poaching is likely so rangers can patrol there. In field tests, rangers following it removed a whole roll of elephant snares, and 10 antelope snares before any animals were caught.",
+      "source": { "name": "Harvard SEAS", "year": 2019, "url": "https://seas.harvard.edu/news/2019/10/outsmarting-poachers" },
+      "topic": "nature",
+      "difficulty": 3
+    },
+    {
+      "id": "us-data-centres",
+      "problem": "Data centres taking a growing share of a country's power",
+      "solution": "Measure and publish energy use so it can be planned",
+      "fact": "US data centres used about 4.4% of the country's electricity in 2023, and could use 6.7% to 12% by 2028.",
+      "source": { "name": "US Department of Energy (Berkeley Lab report)", "year": 2024, "url": "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers" },
+      "topic": "data-centres",
+      "difficulty": 3
+    },
+    {
+      "id": "ict-share",
+      "problem": "Tech's footprint is hard to see",
+      "solution": "Count the whole supply chain, not just the electricity bill",
+      "fact": "Once supply chains are fully counted, information and communication technology may cause 2.1% to 3.9% of global greenhouse gas emissions.",
+      "source": { "name": "Freitag et al., Patterns", "year": 2021, "url": "https://doi.org/10.1016/j.patter.2021.100340" },
+      "topic": "policy",
+      "difficulty": 3
+    },
+    {
+      "id": "bloom",
+      "problem": "Nobody knows what a model really emitted",
+      "solution": "Publish the footprint, including the hardware",
+      "fact": "The team behind the open BLOOM language model estimated its final training emitted about 24.7 tonnes of CO2e, and roughly double that when hardware manufacturing and idle power were included.",
+      "source": { "name": "Luccioni, Viguier and Ligozat, JMLR", "year": 2023, "url": "https://jmlr.org/papers/v24/23-0069.html" },
+      "topic": "ai",
+      "difficulty": 3
+    }
+  ]
+}
