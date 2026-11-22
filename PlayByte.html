@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayByte | LeafByte</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #00c896;
+        --primary-dark: #009b7a;
+        --secondary: #5e35b1;
+        --dark: #1a2b3c;
+        --light: #f8f9fa;
+        --accent: #ff6b6b;
+        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo i {
+        margin-right: 10px;
+        font-size: 32px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 40px;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Main Content Styles */
+      body {
+        font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background-color: var(--dark);
+        color: var(--light);
+        line-height: 1.7;
+        overflow-x: hidden;
+        padding-top: 80px;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Game Cards Section */
+      .games-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 40px 0;
+      }
+
+      .game-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 200, 150, 0.2);
+      }
+
+      .game-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 200, 150, 0.2);
+        background-color: rgba(0, 200, 150, 0.1);
+      }
+
+      .game-card h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .game-card p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--gradient);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 200, 150, 0.4);
+      }
+
+      /* Page Header */
+      .page-header {
+        text-align: center;
+        padding: 60px 0 40px;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      .page-header p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+
+      .footer-links a {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: var(--dark);
+          flex-direction: column;
+          align-items: center;
+          padding: 40px 0;
+          transition: all 0.5s ease;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header.scrolled .nav-links {
+          background: white;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .page-header h1 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .page-header h1 {
+          font-size: 2rem;
+        }
+
+        .games-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <<!-- Header -->
+    <header id="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <i class="fas fa-leaf"></i>
+            LeafByte
+          </a>
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Solutions</a></li>
+            <li><a href="PlayByte.html">PlayByte</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <h1>PlayByte : Climate Challenge</h1>
+        <p>
+          Interactive games that make understanding AI's environmental impact
+          engaging and educational. Play, learn, and discover how we can make
+          technology sustainable.
+        </p>
+      </div>
+    </div>
+
+    <!-- Games Container -->
+    <div class="container">
+      <main class="games-container">
+        <div class="game-card">
+          <h2>Climate Quest</h2>
+          <p>Match to grow a lush garden and unlock climate tech/tools.</p>
+          <a href="climate quest.html" class="btn btn-primary">Play Now</a>
+        </div>
+
+        <div class="game-card">
+          <h2>Power Shift</h2>
+          <p>
+            Balance renewable and non-renewable energy sources in a city
+            simulator. Can you keep the lights on sustainably?
+          </p>
+          <a href="#" class="btn btn-primary">Coming Soon!</a>
+        </div>
+
+        <div class="game-card">
+          <h2>EcoHackers</h2>
+          <p>
+            Play as an ethical hacker uncovering tech waste in digital supply
+            chains and finding sustainable solutions.
+          </p>
+          <a href="#" class="btn btn-primary">Coming Soon!</a>
+        </div>
+
+        <div class="game-card">
+          <h2>Carbon Coder</h2>
+          <p>
+            Optimize code for speed and energy efficiency to reduce a data
+            center's carbon footprint.
+          </p>
+          <a href="#" class="btn btn-primary">Coming Soon!</a>
+        </div>
+
+        <div class="game-card">
+          <h2>Chip Cycle</h2>
+          <p>
+            Follow the life of a silicon chip—from mining to e-waste—and make
+            greener choices along the way.
+          </p>
+          <a href="#" class="btn btn-primary">Coming Soon!</a>
+        </div>
+
+        <div class="game-card">
+          <h2>Data Trail</h2>
+          <p>
+            Track the environmental cost of data as it travels around the world.
+            Find the most efficient routes and storage solutions.
+          </p>
+          <a href="#" class="btn btn-primary">Coming Soon!</a>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>LeafByte</h3>
+            <p>
+              Bridging the gap between AI and technological innovation with
+              environmental responsibility for a sustainable digital future.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="research papers.html">Research Papers</a></li>
+              <li><a href="case studies.html">Case Studies</a></li>
+              <li><a href="meet the heroes.html">Meet Our Heroes</a></li>
+              <li>
+                <a href="more about sustainable tech.html"
+                  >More About Sustainable Tech</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul class="footer-links">
+              <li><a href="our team.html">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 LeafByte. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Header Scroll Effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>

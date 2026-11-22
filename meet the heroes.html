@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Heroes | LeafByte</title>
+    <style>
+      :root {
+        --primary: #00c896;
+        --secondary: #5e35b1;
+        --bg: #f8f9fa;
+        --text: #1e1e1e;
+        --card-bg: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      /* Header Styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        background: rgba(26, 43, 60, 0.9);
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo i {
+        margin-right: 10px;
+        font-size: 32px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 40px;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 5px;
+        color: var(--light);
+      }
+
+      header.scrolled .nav-links a {
+        color: var(--dark);
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--light);
+      }
+
+      header.scrolled .menu-toggle {
+        color: var(--dark);
+      }
+
+      /* Page Header */
+      .page-header {
+        text-align: center;
+        padding: 140px 0 60px;
+        background: var(--gradient);
+        color: white;
+        margin-bottom: 60px;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .page-header p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+
+      .footer-links a {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .card {
+          padding: 30px 20px;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <i class="fas fa-leaf"></i>
+            LeafByte
+          </a>
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Solutions</a></li>
+            <li><a href="PlayByte.html">PlayByte</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+            <li><a href="index.html#join">Join Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Meet Our Heroes</h1>
+      <p>
+        The world has been shaped by courageous voices who have spoken up for
+        the planet. These heroes have inspired change, action, and hope for
+        generations to come.
+      </p>
+    </section>
+
+    <div class="container">
+      <div class="card">
+        <h2>1. Greta Thunberg</h2>
+        <p>
+          Greta Thunberg, a Swedish climate activist, rose to global prominence
+          at 15 by striking outside Parliament for climate action. She founded
+          the global Fridays for Future movement and has addressed the UN,
+          challenging inaction. Greta's activism reframed the climate
+          conversation, inspiring youth-led advocacy and pushing climate urgency
+          into the political mainstream.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>2. Wangari Maathai</h2>
+        <p>
+          Wangari Maathai, Kenyan environmentalist and Nobel laureate, founded
+          the Green Belt Movement in 1977. It planted over 51 million trees,
+          restored degraded land, and empowered women. Maathai bridged
+          environmentalism with human rights and democracy, showing how local
+          action could combat global issues like deforestation and oppression.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>3. Rachel Carson</h2>
+        <p>
+          Rachel Carson, author of Silent Spring, exposed the environmental
+          dangers of pesticides. Despite corporate pushback, her scientific
+          rigor led to the U.S. banning DDT and creating the EPA. Carson’s work
+          catalyzed the modern environmental movement, emphasizing
+          interconnected ecosystems and environmental responsibility.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>4. David Attenborough</h2>
+        <p>
+          Sir David Attenborough, renowned broadcaster, has brought the wonders
+          and fragility of nature to millions through documentaries like Planet
+          Earth. His narration combines science and storytelling to influence
+          policy and ignite public passion for biodiversity and climate action.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>5. Vandana Shiva</h2>
+        <p>
+          Dr. Vandana Shiva, Indian eco-feminist and scientist, advocates for
+          biodiversity and farmers’ rights. She founded Navdanya to preserve
+          indigenous seeds and promote organic farming. Opposing GMOs and
+          industrial agriculture, Shiva’s activism protects both ecosystems and
+          marginalized communities.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>6. Al Gore</h2>
+        <p>
+          Al Gore, former U.S. Vice President, brought climate science into the
+          mainstream with his film An Inconvenient Truth. He later founded the
+          Climate Reality Project, educating millions on climate solutions.
+          Gore’s advocacy has shaped global policy conversations and inspired
+          widespread climate action.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>LeafByte</h3>
+            <p>
+              Bridging the gap between AI and technological innovation with
+              environmental responsibility for a sustainable digital future.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="research papers.html">Research Papers</a></li>
+              <li><a href="case studies.html">Case Studies</a></li>
+              <li><a href="meet the heroes.html">Meet Our Heroes</a></li>
+              <li>
+                <a href="more about sustainable tech.html"
+                  >More About Sustainable Tech</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul class="footer-links">
+              <li><a href="our team.html">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 LeafByte. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>  LeafByte | Sustainable Tech</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Modern Color Palette */
+      :root {
+        --primary: #00c896;
+        --primary-dark: #009b7a;
+        --secondary: #5e35b1;
+        --dark: #1a2b3c;
+        --light: #f8f9fa;
+        --accent: #ff6b6b;
+        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+      /* Modern Button Styles */
+      .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--gradient);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 200, 150, 0.4);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+      .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+      }
+      /* Animated Background Elements */
+      .bg-blob {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 200, 150, 0.1),
+          rgba(94, 53, 177, 0.1)
+        );
+        z-index: -1;
+        animation: float 15s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(50px, 50px) rotate(5deg);
+        }
+        50% {
+          transform: translate(0, 100px) rotate(0deg);
+        }
+        75% {
+          transform: translate(-50px, 50px) rotate(-5deg);
+        }
+      }
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+      }
+      .logo i {
+        margin-right: 10px;
+        font-size: 32px;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+      .nav-links li {
+        margin-left: 40px;
+      }
+      .nav-links a {
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 5px;
+      }
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: url("https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+          no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 43, 60, 0.7);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        line-height: 1.1;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      /* Features Section */
+      .features {
+        background-color: white;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+        position: relative;
+        display: inline-block;
+      }
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient);
+        border-radius: 2px;
+      }
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto 60px;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+      .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+      .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      /* Stats Section */
+      .stats {
+        background: var(--gradient);
+        color: white;
+        text-align: center;
+        padding: 80px 0;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .stat-item {
+        padding: 30px;
+      }
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .stat-label {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+      /*PlayByte Section */
+      .PlayByte {
+        background-color: #f5f7fa;
+      }
+      .PlayByte-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+      .PlayByte-text {
+        flex: 1;
+      }
+      .PlayByte-image {
+        flex: 1;
+        position: relative;
+      }
+      .PlayByte-image img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .PlayByte-image::after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100%;
+        height: 100%;
+        border: 3px solid var(--primary);
+        border-radius: 20px;
+        z-index: -1;
+      }
+      /* Resources Section */
+      .resources {
+        background-color: white;
+      }
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .resource-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+      .resource-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      .resource-image {
+        height: 200px;
+        overflow: hidden;
+      }
+      .resource-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .resource-card:hover .resource-image img {
+        transform: scale(1.1);
+      }
+      .resource-content {
+        padding: 25px;
+      }
+      .resource-category {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+      }
+      .resource-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+      .resource-desc {
+        color: #666;
+        margin-bottom: 20px;
+      }
+      /* Join Section */
+      .join {
+        background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80")
+          no-repeat center center;
+        background-size: cover;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+      .join::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .join-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .join-form {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+        text-align: left;
+      }
+      .form-group {
+        margin-bottom: 25px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.2);
+        outline: none;
+      }
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+      .form-row .form-group {
+        flex: 1;
+      }
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        position: relative;
+      }
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+      .footer-links a {
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+        padding-left: 5px;
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+        .PlayByte-content {
+          flex-direction: column;
+        }
+        .PlayByte-image::after {
+          display: none;
+        }
+      }
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          padding: 40px 0;
+          transition: all 0.5s ease;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .nav-links li {
+          margin: 15px 0;
+        }
+        .hero-btns {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .btn {
+          width: 100%;
+        }
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .stat-number {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <nav class="navbar"> 
+          <a href="#" class="logo">
+            <i class="fas fa-leaf"></i>
+            LeafByte
+          </a>
+          <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Solutions</a></li>
+            <li><a href="#playbyte">PlayByte</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#join">Join Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Play, Learn, Code Green, & Shape Tomorrow</h1>
+          <p>
+            To make AI & technology sustainable and eco-friendly for a greener
+            tomorrow, join the "Green Code Movement" now!
+          </p>
+          <div class="hero-btns">
+            <a href="#join" class="btn btn-primary"
+              >Join the Green Code Movement</a
+            >
+            <a href="#features" class="btn btn-outline">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-blob" style="top: -300px; right: -300px"></div>
+    </section>
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Our Sustainable AI & Tech Solutions</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="feature-title">Efficient AI Models</h3>
+            <p>
+              Green AI mindset - Focus on energy-efficient algorithms rather
+              than just accuracy.<br />
+              Low-Rank Adaptation - Use smaller, optimized models like
+              DistilBERT or LoRA.<br />
+              Example: OpenAI’s GPT-4-turbo is designed to be cheaper and faster
+              than GPT-4, reducing compute usage.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="feature-title">Green Data Centers</h3>
+            <p>
+              Shift to renewable energy sources like wind, solar, and hydropower
+              to run data centers.<br />
+              Tech giants like Google and Microsoft aim for carbon-negative
+              operations by 2030.<br />
+              Example: Google Cloud operates at over 90% carbon-free energy in
+              several regions.<br />
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Model Reuse and Transfer Learning</h3>
+            <p>
+              Instead of training models from scratch, reuse pre-trained models
+              and fine-tune them.<br />
+              This saves significant computational resources and emissions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Geographical Optimization</h3>
+            <p>
+              Run energy-intensive training in regions with abundant green
+              energy or cooler climates to reduce cooling energy needs.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Efficient Hardware</h3>
+            <p>
+              Use specialized chips like TPUs, GPUs, or neuromorphic hardware
+              that offer better performance-per-watt.<br />
+              Upgrade to newer, more power-efficient server architectures.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Better Training Techniques</h3>
+            <p>
+              Use mixed-precision training to reduce compute costs.<br />
+              Apply techniques like early stopping, pruning, or quantization to
+              reduce model size and energy use.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Carbon Offsetting & Accountability</h3>
+            <p>
+              Companies can track, report, and offset AI-related emissions using
+              tools like ML CO2 calculators.<br />
+              Invest in carbon offset projects—e.g., reforestation or renewable
+              energy installations.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Environmental Impact Audits</h3>
+            <p>
+              Conduct life-cycle assessments of AI systems to evaluate their
+              true environmental cost.<br />
+              Promote transparency in reporting emissions from AI projects.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class=""></i>
+            </div>
+            <h3 class="feature-title">Sustainable AI Policy & Research</h3>
+            <p>
+              Encourage government regulation that incentivizes sustainable AI
+              development.<br />
+              Support academic research on reducing the environmental impact of
+              deep learning.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-blob" style="bottom: -400px; left: -300px"></div>
+    </section>
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">95 kg</div>
+            <div class="stat-label">Of CO₂ = producing 1 smart phone</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">~4%</div>
+            <div class="stat-label">
+              Global CO₂ emissions by Information and Communication Tech</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">~7%</div>
+            <div class="stat-label">
+              Global electricity used for Information and Communication Tech</div>
+              alone
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">~129 TWh/year</div>
+            <div class="stat-label">Consumed while Bitcoin mining</div>
+          </div>
+        <div class="stat-item">
+          <div class="stat-number">130 million tons</div>
+          <div class="stat-label">CO₂ produced by crypto & blockchain</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">62 million tons</div>
+          <div class="stat-label">Global e-waste generated in 2024</div>
+      </div>
+    </section>
+    <!-- PlayByte Section -->
+    <section class="PlayByte" id="playbyte">
+      <div class="container">
+        <div class="PlayByte-content">
+          <div class="PlayByte-text">
+            <h2 class="section-title">PlayByte: Climate Challenge</h2>
+            <p>
+              Experience our interactive platform that makes understanding AI
+              and Technology's environmental impact engaging and educational.
+            </p>
+            <a
+              href="PlayByte.html"
+              class="btn btn-primary"
+              style="margin-top: 30px"
+              >Play Now</a
+            >
+          </div>
+          <div class="playbyte-image">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+      <div class="container">
+        <h2 class="section-title">Knowledge Grove</h2>
+        <p class="section-subtitle">
+          Explore our library of resources to learn about sustainable AI and
+          tech practices!
+        </p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-image">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Sustainable AI"
+              />
+            </div>
+            <div class="resource-content">
+              <span class="resource-category">Whitepaper</span>
+              <h3 class="resource-title">The Future of Green AI</h3>
+              <p class="resource-desc">
+                Comprehensive guide to implementing sustainable practices in
+                machine learning pipelines.
+              </p>
+              <a
+                href="green ai.html"
+                class="btn btn-outline"
+                style="padding: 10px 20px"
+                >Read more</a
+              >
+            </div>
+          </div>
+          <div class="resource-card">
+            <div class="resource-image">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="AI Impact"
+              />
+            </div>
+            <div class="resource-content">
+              <span class="resource-category">Video Series</span>
+              <h3 class="resource-title">AI's Environmental Footprint</h3>
+              <p class="resource-desc">
+                Five-part documentary exploring the real impact of artificial
+                intelligence on our planet.
+              </p>
+              <a href="#" class="btn btn-outline" style="padding: 10px 20px"
+                >Coming Soon!</a
+              >
+            </div>
+          </div>
+          <div class="resource-card">
+            <div class="resource-image">
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Community"
+              />
+            </div>
+            <div class="resource-content">
+              <span class="resource-category">Community</span>
+              <h3 class="resource-title">Stories & Sparks</h3>
+              <p class="resource-desc">
+                Join our community of innovators sharing experiences and ideas
+                for sustainable AI.
+              </p>
+              <a href="#" class="btn btn-outline" style="padding: 10px 20px"
+                >Coming Soon!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Join Section -->
+    <section class="join" id="join">
+      <div class="container">
+        <div class="join-content">
+          <h2 class="section-title">Join the Green Code Movement</h2>
+          <p class="section-subtitle">
+            Be part of the solution. Together, we can make AI and tech both
+            powerful and planet-friendly.
+          </p>
+          <div class="join-form">
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" placeholder="Enter your name" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Enter your email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="organization">Organization</label>
+                  <input
+                    type="text"
+                    id="organization"
+                    placeholder="Your company or school"
+                  />
+                </div>
+                <div class="form-g roup">
+                  <label for="interest">Primary Interest</label>
+                  <select id="interest">
+                    <option value="">Select your interest</option>
+                    <option value="research">AI Research</option>
+                    <option value="development">Software Development</option>
+                    <option value="sustainability">
+                      Environmental Science
+                    </option>
+                    <option value="education">Education</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">How would you like to contribute?</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Your ideas or expertise"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Join the Movement
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>LeafByte</h3>
+            <p>
+              Bridging the gap between AI and technological innovation with
+              environmental responsibility for a sustainable digital future.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fa5b fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="research papers.html">Research Papers</a></li>
+              <li><a href="case studies.html">Case Studies</a></li>
+              <li><a href="meet the heroes.html">Meet Our Heroes</a></li>
+              <li>
+                <a href="more about sustainable tech.html"
+                  >More About Sustainable Tech</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <ul class="footer-links">
+              <li><a href="our team.html">Our Team</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 LeafByte. All rights reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+      // Mobile Menu Toggle
+      <script>
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      // Header Scroll Effect
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+      // Smooth Scrolling for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+            // Close mobile menu if open
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
