@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join the Green Code Movement | LeafByte</title>
+    <meta name="description" content="Join the Green Code Movement: students, educators, volunteers and organisations making technology planet-friendly." />
+    <meta property="og:title" content="Join the Green Code Movement | LeafByte" />
+    <meta property="og:description" content="Help make AI and technology planet-friendly." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Join</p>
+          <h1>Join the Green Code Movement</h1>
+          <p class="lead">
+            Be part of the solution. Tell us who you are and how you would like to help, and we will email you a first
+            step.
+          </p>
+        </div>
+      </section>
+
+      <div class="container grid" style="grid-template-columns: minmax(0, 720px)">
+        <div class="notice" id="not-connected" hidden>
+          <strong>Sign-ups open soon.</strong> This form is not connected to our database yet, so we cannot save your
+          details today. Please check back shortly.
+        </div>
+        <div class="notice" id="game-note" hidden></div>
+
+        <form class="form card" id="join-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="name-error" />
+              <p class="error" id="name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="email-error" />
+              <p class="error" id="email-error" hidden></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="role">I am a…</label>
+              <select id="role" name="role" required aria-describedby="role-error">
+                <option value="">Choose one</option>
+                <option value="student">Student</option>
+                <option value="educator">Educator</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="organisation">Organisation</option>
+              </select>
+              <p class="error" id="role-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="country">Country <span class="meta">(optional)</span></label>
+              <input id="country" name="country" type="text" autocomplete="country-name" maxlength="80" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interest">What are you interested in?</label>
+            <select id="interest" name="interest" required aria-describedby="interest-error">
+              <option value="">Choose one</option>
+              <option value="updates">News and new lessons</option>
+              <option value="games">Hearing when new games launch</option>
+              <option value="teaching">Using LeafByte in class</option>
+              <option value="volunteering">Volunteering</option>
+              <option value="partnering">Partnering as an organisation</option>
+              <option value="nominate">Nominating a climate hero</option>
+              <option value="contact">Asking a question</option>
+            </select>
+            <p class="error" id="interest-error" hidden></p>
+          </div>
+
+          <fieldset class="field" style="border: 0">
+            <legend>Would you like a volunteer role? <span class="meta">(optional)</span></legend>
+            <select id="volunteer_role" name="volunteer_role" aria-label="Volunteer role">
+              <option value="">Not right now</option>
+              <option value="content-writer">Content writer</option>
+              <option value="translator">Translator</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="campus-ambassador">Campus ambassador</option>
+            </select>
+          </fieldset>
+
+          <div class="field">
+            <label for="contribution">How would you like to contribute? <span class="meta">(optional)</span></label>
+            <textarea id="contribution" name="contribution" maxlength="1000" aria-describedby="contribution-hint"></textarea>
+            <p class="hint" id="contribution-hint">A sentence or two is plenty. If you are nominating a hero or asking a question, write it here.</p>
+          </div>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label class="checkbox">
+              <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-error" />
+              <span>
+                I agree that LeafByte can store these details and email me about the Green Code Movement. We send at most
+                one email a month and you can unsubscribe at any time. Read our <a href="privacy.html">privacy policy</a>.
+              </span>
+            </label>
+            <p class="error" id="consent-error" hidden></p>
+          </div>
+
+          <div class="notice notice-error" id="form-error" role="alert" hidden></div>
+
+          <div>
+            <button class="btn btn-primary" type="submit" id="submit-btn">Join the movement</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/site.js"></script>
+    <script src="assets/js/join.js"></script>
+  </body>
+</html>
